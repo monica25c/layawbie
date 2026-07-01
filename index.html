@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monica & Rizki 🌸 6 Tahun Bersama</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500&family=Dancing+Script:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ✨ HERO SECTION -->
+  <section class="hero">
+    <div class="petals-container" id="petals"></div>
+    <div class="hero-content">
+      <p class="hero-sub">✨ 6 Tahun Penuh Cinta ✨</p>
+      <h1 class="hero-title">Monica <span class="amp">&</span> Rizki</h1>
+      <p class="hero-date">Sejak pertama bertemu, hingga selamanya 🌸</p>
+      <div class="heart-divider">💕</div>
+      <p class="hero-quote">"Kamu bukan hanya pasanganku, kamu adalah rumah favoritku."</p>
+      <a href="#gallery" class="btn-explore">Lihat Perjalanan Kita ↓</a>
+    </div>
+  </section>
+
+  <!-- 💌 COUNTER SECTION -->
+  <section class="counter-section">
+    <div class="counter-card">
+      <span class="counter-num" id="days">—</span>
+      <span class="counter-label">Hari Bersama</span>
+    </div>
+    <div class="counter-card">
+      <span class="counter-num">6</span>
+      <span class="counter-label">Tahun Cinta</span>
+    </div>
+    <div class="counter-card">
+      <span class="counter-num">∞</span>
+      <span class="counter-label">Kenangan Indah</span>
+    </div>
+  </section>
+
+  <!-- 📸 GALLERY SECTION -->
+  <section class="gallery-section" id="gallery">
+    <div class="section-header">
+      <h2>Momen Kita 📷</h2>
+      <p>Setiap foto menyimpan cerita yang tak terlupakan</p>
+    </div>
+
+    <div class="gallery-grid">
+
+      <div class="photo-card" onclick="openModal(0)">
+        <div class="photo-frame">
+          <img src="photos/foto1.jpg" alt="Momen 1" onerror="handleImgError(this)" />
+          <div class="photo-placeholder">📸<br/>foto1.jpg</div>
+        </div>
+        <div class="photo-caption">
+          <span class="caption-num">01</span>
+          <p>"Senyummu adalah alasan hariku selalu indah. 🌸"</p>
+        </div>
+      </div>
+
+      <div class="photo-card" onclick="openModal(1)">
+        <div class="photo-frame">
+          <img src="photos/foto2.jpg" alt="Momen 2" onerror="handleImgError(this)" />
+          <div class="photo-placeholder">📸<br/>foto2.jpg</div>
+        </div>
+        <div class="photo-caption">
+          <span class="caption-num">02</span>
+          <p>"Di antara semua hal yang kumiliki, kamu adalah favoritku. 💛"</p>
+        </div>
+      </div>
+
+      <div class="photo-card" onclick="openModal(2)">
+        <div class="photo-frame">
+          <img src="photos/foto3.jpg" alt="Momen 3" onerror="handleImgError(this)" />
+          <div class="photo-placeholder">📸<br/>foto3.jpg</div>
+        </div>
+        <div class="photo-caption">
+          <span class="caption-num">03</span>
+          <p>"Bersama kamu, bahkan hari biasa terasa luar biasa. ✨"</p>
+        </div>
+      </div>
+
+      <div class="photo-card" onclick="openModal(3)">
+        <div class="photo-frame">
+          <img src="photos/foto4.jpg" alt="Momen 4" onerror="handleImgError(this)" />
+          <div class="photo-placeholder">📸<br/>foto4.jpg</div>
+        </div>
+        <div class="photo-caption">
+          <span class="caption-num">04</span>
+          <p>"Perjalanan terbaik adalah yang kulewati bersamamu. 🛤️"</p>
+        </div>
+      </div>
+
+      <div class="photo-card" onclick="openModal(4)">
+        <div class="photo-frame">
+          <img src="photos/foto5.jpg" alt="Momen 5" onerror="handleImgError(this)" />
+          <div class="photo-placeholder">📸<br/>foto5.jpg</div>
+        </div>
+        <div class="photo-caption">
+          <span class="caption-num">05</span>
+          <p>"Kamu adalah tempat pulang yang selalu kunantikan. 🏠💕"</p>
+        </div>
+      </div>
+
+      <div class="photo-card" onclick="openModal(5)">
+        <div class="photo-frame">
+          <img src="photos/foto6.jpg" alt="Momen 6" onerror="handleImgError(this)" />
+          <div class="photo-placeholder">📸<br/>foto6.jpg</div>
+        </div>
+        <div class="photo-caption">
+          <span class="caption-num">06</span>
+          <p>"Tawa kita adalah melodi terindah yang pernah kudengar. 🎵"</p>
+        </div>
+      </div>
+
+      <div class="photo-card" onclick="openModal(6)">
+        <div class="photo-frame">
+          <img src="photos/foto7.jpg" alt="Momen 7" onerror="handleImgError(this)" />
+          <div class="photo-placeholder">📸<br/>foto7.jpg</div>
+        </div>
+        <div class="photo-caption">
+          <span class="caption-num">07</span>
+          <p>"Enam tahun dan aku masih jatuh cinta setiap harinya. 🌹"</p>
+        </div>
+      </div>
+
+      <div class="photo-card" onclick="openModal(7)">
+        <div class="photo-frame">
+          <img src="photos/foto8.jpg" alt="Momen 8" onerror="handleImgError(this)" />
+          <div class="photo-placeholder">📸<br/>foto8.jpg</div>
+        </div>
+        <div class="photo-caption">
+          <span class="caption-num">08</span>
+          <p>"Kamu adalah petualangan terbaik yang Tuhan tuliskan untukku. 🌟"</p>
+        </div>
+      </div>
+
+      <div class="photo-card" onclick="openModal(8)">
+        <div class="photo-frame">
+          <img src="photos/foto9.jpg" alt="Momen 9" onerror="handleImgError(this)" />
+          <div class="photo-placeholder">📸<br/>foto9.jpg</div>
+        </div>
+        <div class="photo-caption">
+          <span class="caption-num">09</span>
+          <p>"Genggaman tanganmu adalah rumah yang selalu kurindu. 🤝💗"</p>
+        </div>
+      </div>
+
+      <div class="photo-card" onclick="openModal(9)">
+        <div class="photo-frame">
+          <img src="photos/foto10.jpg" alt="Momen 10" onerror="handleImgError(this)" />
+          <div class="photo-placeholder">📸<br/>foto10.jpg</div>
+        </div>
+        <div class="photo-caption">
+          <span class="caption-num">10</span>
+          <p>"Bersamamu, setiap detik adalah hadiah yang berharga. ⏳🎁"</p>
+        </div>
+      </div>
+
+      <div class="photo-card" onclick="openModal(10)">
+        <div class="photo-frame">
+          <img src="photos/foto11.jpg" alt="Momen 11" onerror="handleImgError(this)" />
+          <div class="photo-placeholder">📸<br/>foto11.jpg</div>
+        </div>
+        <div class="photo-caption">
+          <span class="caption-num">11</span>
+          <p>"Kamu membuatku percaya bahwa cinta sejati itu nyata. 💌"</p>
+        </div>
+      </div>
+
+      <div class="photo-card" onclick="openModal(11)">
+        <div class="photo-frame">
+          <img src="photos/foto12.jpg" alt="Momen 12" onerror="handleImgError(this)" />
+          <div class="photo-placeholder">📸<br/>foto12.jpg</div>
+        </div>
+        <div class="photo-caption">
+          <span class="caption-num">12</span>
+          <p>"Masa depan terasa lebih cerah karena kamu ada di sana. ☀️"</p>
+        </div>
+      </div>
+
+      <div class="photo-card" onclick="openModal(12)">
+        <div class="photo-frame">
+          <img src="photos/foto13.jpg" alt="Momen 13" onerror="handleImgError(this)" />
+          <div class="photo-placeholder">📸<br/>foto13.jpg</div>
+        </div>
+        <div class="photo-caption">
+          <span class="caption-num">13</span>
+          <p>"Bukan hanya 6 tahun, tapi seumur hidup bersamamu. 👫"</p>
+        </div>
+      </div>
+
+      <div class="photo-card" onclick="openModal(13)">
+        <div class="photo-frame">
+          <img src="photos/foto14.jpg" alt="Momen 14" onerror="handleImgError(this)" />
+          <div class="photo-placeholder">📸<br/>foto14.jpg</div>
+        </div>
+        <div class="photo-caption">
+          <span class="caption-num">14</span>
+          <p>"Kamu adalah warna di setiap halaman cerita hidupku. 🎨"</p>
+        </div>
+      </div>
+
+      <div class="photo-card" onclick="openModal(14)">
+        <div class="photo-frame">
+          <img src="photos/foto15.jpg" alt="Momen 15" onerror="handleImgError(this)" />
+          <div class="photo-placeholder">📸<br/>foto15.jpg</div>
+        </div>
+        <div class="photo-caption">
+          <span class="caption-num">15</span>
+          <p>"Setiap perjalanan bersamamu adalah cerita yang ingin kuulang. 🗺️✨"</p>
+        </div>
+      </div>
+
+      <div class="photo-card" onclick="openModal(15)">
+        <div class="photo-frame">
+          <img src="photos/foto16.jpg" alt="Momen 16" onerror="handleImgError(this)" />
+          <div class="photo-placeholder">📸<br/>foto16.jpg</div>
+        </div>
+        <div class="photo-caption">
+          <span class="caption-num">16</span>
+          <p>"Monica & Rizki — Dari hari ini sampai selalu. 💍🌸"</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 💌 LOVE LETTER SECTION -->
+  <section class="letter-section">
+    <div class="letter-card">
+      <div class="letter-header">💌 Surat Cinta</div>
+      <div class="letter-body">
+        <p>Untuk Rizki tersayang,</p>
+        <br/>
+        <p>Enam tahun bukanlah waktu yang sebentar. Ada tawa, ada air mata, ada rindu yang panjang — dan semuanya kita lalui bersama. Di setiap momen itu, aku selalu bersyukur kamu ada.</p>
+        <br/>
+        <p>Kamu adalah orang yang mengajariku bahwa cinta bukan hanya rasa, tapi pilihan yang kita perbarui setiap harinya. Dan aku memilihmu — kemarin, hari ini, dan selamanya.</p>
+        <br/>
+        <p>Terima kasih sudah ada. Terima kasih sudah bertahan. Terima kasih sudah menjadi kamu.</p>
+        <br/>
+        <p class="letter-sign">Dengan cinta penuh,<br/><em>Monica 🌸</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🎊 FOOTER -->
+  <footer class="footer">
+    <div class="footer-heart">💕</div>
+    <p>Monica & Rizki</p>
+    <p class="footer-sub">6 Tahun, Satu Hati</p>
+    <p class="footer-tiny">Made with love 🌸</p>
+  </footer>
+
+  <!-- MODAL LIGHTBOX -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-img-wrap">
+        <img id="modalImg" src="" alt="" />
+        <div id="modalPlaceholder" class="modal-placeholder">📸</div>
+      </div>
+      <p id="modalQuote" class="modal-quote"></p>
+      <div class="modal-nav">
+        <button onclick="prevPhoto()">← Sebelumnya</button>
+        <button onclick="nextPhoto()">Selanjutnya →</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
