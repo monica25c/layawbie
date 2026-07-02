@@ -8,9 +8,9 @@ const photos = [
   { src: 'photos/foto2.jpg',  caption: 'sebelum jadian jadi bocil epep dulu 😂',                      quote: '"Fase awkward yang sekarang jadi cerita lucu."' },
   { src: 'photos/foto3.jpg',  caption: 'masuk SMA pas awal covid, canggung bgt kita oi 😅',           quote: '"Pandemi datang, tapi perasaan kita malah makin kuat."' },
   { src: 'photos/foto4.jpg',  caption: 'ngedate ala anak sekolahan 🏫💕',                             quote: '"Sederhana tapi berasa paling bahagia."' },
-  { src: 'photos/foto5.jpg',  caption: 'ppp mau kondangan? 😄👔',                                     quote: '"Outfit matching tanpa janjian — emang udah jodoh."' },
+  { src: 'photos/foto5.jpg',  caption: 'ppp mau kondangan? 😄👔',                                     quote: '"Outfit matching tanpa janjian, emang udah jodoh."' },
   { src: 'photos/foto6.jpg',  caption: 'banyak foto SMA yak, adanya pas pepisahan SMA doang 🎓',      quote: '"Babak SMA selesai, tapi cerita kita baru dimulai."' },
-  { src: 'photos/foto7.jpg',  caption: 'ke Gacoan pertama kali — aku UTBK dia udah lulus SNBP coy 🔥',quote: '"Rayain pencapaian bareng, itulah kita."' },
+  { src: 'photos/foto7.jpg',  caption: 'ke Gacoan pertama kali, aku UTBK dia udah lulus SNBP coy 🔥',quote: '"Rayain pencapaian bareng, itulah kita."' },
   { src: 'photos/foto8.jpg',  caption: 'rencanain satu kampus bareng malah LDR hikss 😭',              quote: '"Rencananya beda, tapi hatinya tetap satu."' },
   { src: 'photos/foto9.jpg',  caption: 'LDR dimulai, mari kita mulai perang ini 💪',                  quote: '"Jarak cuma angka, rasa kita yang menentukan."' },
   { src: 'photos/foto10.jpg', caption: 'ketemunya libur semester aja, hiks 🗓️😢',                    quote: '"Tiap pertemuan jadi semakin berharga."' },
@@ -18,7 +18,7 @@ const photos = [
   { src: 'photos/foto12.jpg', caption: 'LDR, VC-an mulu 📱💬',                                        quote: '"Layar HP jadi jendela setiap harinya."' },
   { src: 'photos/foto13.jpg', caption: 'ngide datengin ke Lampung 🚌✨',                              quote: '"Surprise terbaik: kamu tiba-tiba ada di depan pintu."' },
   { src: 'photos/foto14.jpg', caption: 'Bukit Aslan 🏔️🌿',                                           quote: '"Pemandangan indah jadi lebih indah karena kamu ada."' },
-  { src: 'photos/foto15.jpg', caption: 'makan sushi mengakhiri tahun 2025 🍣🎉',                      quote: '"Tutup tahun dengan orang tersayang — sempurna."' },
+  { src: 'photos/foto15.jpg', caption: 'makan sushi mengakhiri tahun 2025 🍣🎉',                      quote: '"Tutup tahun dengan orang tersayang, sempurna."' },
   { src: 'photos/foto16.jpg', caption: 'masih dengan aku, kamu, dan Lampung 🌴💕',                    quote: '"Lampung jadi saksi bisu cerita kita."' },
   { src: 'photos/foto17.jpg', caption: 'hunting makanan enak di Lampung yeuyy 🍜😋',                 quote: '"Perut kenyang, hati lebih kenyang lagi."' },
   { src: 'photos/foto18.jpg', caption: 'mancing edition 🎣😄',                                        quote: '"Nunggu ikan bareng itu ternyata seru juga."' },
@@ -47,7 +47,7 @@ setInterval(createPetal, 1000);
 
 // ───────── DAY COUNTER ─────────
 // Ganti tanggal jadian di sini (tahun, bulan-1, tanggal)
-const startDate = new Date(2019, 0, 1);
+const startDate = new Date(2020, 6, 30); // 30 Juli 2020
 
 function updateCounter() {
   const today = new Date();
@@ -188,10 +188,10 @@ const questions = [
     feedback: { right: '✅ Yap! Rencananya mau satu kampus tapi malah LDR 😭', wrong: '❌ Hmm, coba tebak lagi — LDR beda kota lho!' }
   },
   {
-    q: '🌴 Kota mana yang jadi saksi cerita mereka?',
-    opts: ['Bandung', 'Bali', 'Lampung', 'Yogyakarta'],
-    ans: 2,
-    feedback: { right: '✅ Lampung! Bahkan ada Bukit Aslan segala 🏔️', wrong: '❌ Bukan itu~ Lampung dong, ada Bukit Aslan-nya!' }
+    q: '📅 Kapan Monica & Rizki resmi jadian?',
+    opts: ['1 Januari 2019', '30 Juli 2020', '17 Agustus 2020', '14 Februari 2021'],
+    ans: 1,
+    feedback: { right: '✅ Betul! 30 Juli 2020 — tanggal yang selalu diingat 💕', wrong: '❌ Salah nih~ tanggal jadian mereka itu 30 Juli 2020 lho!' }
   },
   {
     q: '🍣 Momen spesial apa yang mereka rayakan di akhir 2025?',
