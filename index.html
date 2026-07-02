@@ -3,34 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Monica & Rizki 🌸 6 Tahun Bersama</title>
+  <title>Monica & Rizki 🌸 Our Story</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500&family=Dancing+Script:wght@600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- ✨ HERO SECTION -->
+  <!-- ✨ HERO -->
   <section class="hero">
     <div class="petals-container" id="petals"></div>
     <div class="hero-content">
-      <p class="hero-sub">✨ 6 Tahun Penuh Cinta ✨</p>
+      <p class="hero-sub">✨ Our Love Story ✨</p>
       <h1 class="hero-title">Monica <span class="amp">&</span> Rizki</h1>
-      <p class="hero-date">Sejak pertama bertemu, hingga selamanya 🌸</p>
+      <p class="hero-date">Dari cinta monyet SD sampai selamanya 🌸</p>
       <div class="heart-divider">💕</div>
       <p class="hero-quote">"Kamu bukan hanya pasanganku, kamu adalah rumah favoritku."</p>
-      <a href="#gallery" class="btn-explore">Lihat Perjalanan Kita ↓</a>
+      <div class="hero-btns">
+        <a href="#slideshow" class="btn-explore">Lihat Cerita Kita 📸</a>
+        <a href="#game" class="btn-game">Main Teka-Teki 💌</a>
+      </div>
     </div>
   </section>
 
-  <!-- 💌 COUNTER SECTION -->
+  <!-- 💌 COUNTER -->
   <section class="counter-section">
     <div class="counter-card">
       <span class="counter-num" id="days">—</span>
       <span class="counter-label">Hari Bersama</span>
     </div>
     <div class="counter-card">
-      <span class="counter-num">6</span>
+      <span class="counter-num" id="years">—</span>
       <span class="counter-label">Tahun Cinta</span>
     </div>
     <div class="counter-card">
@@ -39,221 +42,317 @@
     </div>
   </section>
 
-  <!-- 📸 GALLERY SECTION -->
-  <section class="gallery-section" id="gallery">
+  <!-- 📸 SLIDESHOW -->
+  <section class="slideshow-section" id="slideshow">
     <div class="section-header">
-      <h2>Momen Kita 📷</h2>
-      <p>Setiap foto menyimpan cerita yang tak terlupakan</p>
+      <h2>Perjalanan Kita 📷</h2>
+      <p>Geser untuk melihat setiap momen spesial</p>
     </div>
 
-    <div class="gallery-grid">
+    <div class="slideshow-wrapper">
+      <button class="slide-btn prev-btn" onclick="changeSlide(-1)">‹</button>
 
-      <div class="photo-card" onclick="openModal(0)">
-        <div class="photo-frame">
-          <img src="photos/foto1.jpg" alt="Momen 1" onerror="handleImgError(this)" />
-          <div class="photo-placeholder">📸<br/>foto1.jpg</div>
-        </div>
-        <div class="photo-caption">
-          <span class="caption-num">01</span>
-          <p>"Senyummu adalah alasan hariku selalu indah. 🌸"</p>
+      <div class="slideshow-track-wrap">
+        <div class="slideshow-track" id="slideshowTrack">
+
+          <div class="slide-card">
+            <div class="slide-img-wrap">
+              <img src="photos/foto1.jpg" alt="Foto 1" onerror="handleImgError(this)" />
+              <div class="slide-placeholder">📸</div>
+            </div>
+            <div class="slide-info">
+              <span class="slide-num">01 / 20</span>
+              <p class="slide-caption">teman SD cinta monyet 🥺</p>
+              <p class="slide-quote">"Siapa sangka teman kecil jadi cinta selamanya."</p>
+            </div>
+          </div>
+
+          <div class="slide-card">
+            <div class="slide-img-wrap">
+              <img src="photos/foto2.jpg" alt="Foto 2" onerror="handleImgError(this)" />
+              <div class="slide-placeholder">📸</div>
+            </div>
+            <div class="slide-info">
+              <span class="slide-num">02 / 20</span>
+              <p class="slide-caption">sebelum jadian jadi bocil epep dulu 😂</p>
+              <p class="slide-quote">"Fase awkward yang sekarang jadi cerita lucu."</p>
+            </div>
+          </div>
+
+          <div class="slide-card">
+            <div class="slide-img-wrap">
+              <img src="photos/foto3.jpg" alt="Foto 3" onerror="handleImgError(this)" />
+              <div class="slide-placeholder">📸</div>
+            </div>
+            <div class="slide-info">
+              <span class="slide-num">03 / 20</span>
+              <p class="slide-caption">masuk SMA pas awal covid, canggung bgt kita oi 😅</p>
+              <p class="slide-quote">"Pandemi datang, tapi perasaan kita malah makin kuat."</p>
+            </div>
+          </div>
+
+          <div class="slide-card">
+            <div class="slide-img-wrap">
+              <img src="photos/foto4.jpg" alt="Foto 4" onerror="handleImgError(this)" />
+              <div class="slide-placeholder">📸</div>
+            </div>
+            <div class="slide-info">
+              <span class="slide-num">04 / 20</span>
+              <p class="slide-caption">ngedate ala anak sekolahan 🏫💕</p>
+              <p class="slide-quote">"Sederhana tapi berasa paling bahagia."</p>
+            </div>
+          </div>
+
+          <div class="slide-card">
+            <div class="slide-img-wrap">
+              <img src="photos/foto5.jpg" alt="Foto 5" onerror="handleImgError(this)" />
+              <div class="slide-placeholder">📸</div>
+            </div>
+            <div class="slide-info">
+              <span class="slide-num">05 / 20</span>
+              <p class="slide-caption">ppp mau kondangan? 😄👔</p>
+              <p class="slide-quote">"Outfit matching tanpa janjian — emang udah jodoh."</p>
+            </div>
+          </div>
+
+          <div class="slide-card">
+            <div class="slide-img-wrap">
+              <img src="photos/foto6.jpg" alt="Foto 6" onerror="handleImgError(this)" />
+              <div class="slide-placeholder">📸</div>
+            </div>
+            <div class="slide-info">
+              <span class="slide-num">06 / 20</span>
+              <p class="slide-caption">banyak foto SMA yak, adanya pas pepisahan SMA doang 🎓</p>
+              <p class="slide-quote">"Babak SMA selesai, tapi cerita kita baru dimulai."</p>
+            </div>
+          </div>
+
+          <div class="slide-card">
+            <div class="slide-img-wrap">
+              <img src="photos/foto7.jpg" alt="Foto 7" onerror="handleImgError(this)" />
+              <div class="slide-placeholder">📸</div>
+            </div>
+            <div class="slide-info">
+              <span class="slide-num">07 / 20</span>
+              <p class="slide-caption">ke Gacoan pertama kali — aku UTBK dia daftar ulang, udah lulus SNBP duluan coy 🔥</p>
+              <p class="slide-quote">"Rayain pencapaian bareng, itulah kita."</p>
+            </div>
+          </div>
+
+          <div class="slide-card">
+            <div class="slide-img-wrap">
+              <img src="photos/foto8.jpg" alt="Foto 8" onerror="handleImgError(this)" />
+              <div class="slide-placeholder">📸</div>
+            </div>
+            <div class="slide-info">
+              <span class="slide-num">08 / 20</span>
+              <p class="slide-caption">rencanain satu kampus bareng malah LDR hikss 😭</p>
+              <p class="slide-quote">"Rencananya beda, tapi hatinya tetap satu."</p>
+            </div>
+          </div>
+
+          <div class="slide-card">
+            <div class="slide-img-wrap">
+              <img src="photos/foto9.jpg" alt="Foto 9" onerror="handleImgError(this)" />
+              <div class="slide-placeholder">📸</div>
+            </div>
+            <div class="slide-info">
+              <span class="slide-num">09 / 20</span>
+              <p class="slide-caption">LDR dimulai, mari kita mulai perang ini 💪</p>
+              <p class="slide-quote">"Jarak cuma angka, rasa kita yang menentukan."</p>
+            </div>
+          </div>
+
+          <div class="slide-card">
+            <div class="slide-img-wrap">
+              <img src="photos/foto10.jpg" alt="Foto 10" onerror="handleImgError(this)" />
+              <div class="slide-placeholder">📸</div>
+            </div>
+            <div class="slide-info">
+              <span class="slide-num">10 / 20</span>
+              <p class="slide-caption">ketemunya libur semester aja, hiks 🗓️😢</p>
+              <p class="slide-quote">"Tiap pertemuan jadi semakin berharga."</p>
+            </div>
+          </div>
+
+          <div class="slide-card">
+            <div class="slide-img-wrap">
+              <img src="photos/foto11.jpg" alt="Foto 11" onerror="handleImgError(this)" />
+              <div class="slide-placeholder">📸</div>
+            </div>
+            <div class="slide-info">
+              <span class="slide-num">11 / 20</span>
+              <p class="slide-caption">ini juga foto pas libur semester 📅</p>
+              <p class="slide-quote">"Setiap libur adalah hadiah yang paling ditunggu."</p>
+            </div>
+          </div>
+
+          <div class="slide-card">
+            <div class="slide-img-wrap">
+              <img src="photos/foto12.jpg" alt="Foto 12" onerror="handleImgError(this)" />
+              <div class="slide-placeholder">📸</div>
+            </div>
+            <div class="slide-info">
+              <span class="slide-num">12 / 20</span>
+              <p class="slide-caption">LDR, VC-an mulu 📱💬</p>
+              <p class="slide-quote">"Layar HP jadi jendela setiap harinya."</p>
+            </div>
+          </div>
+
+          <div class="slide-card">
+            <div class="slide-img-wrap">
+              <img src="photos/foto13.jpg" alt="Foto 13" onerror="handleImgError(this)" />
+              <div class="slide-placeholder">📸</div>
+            </div>
+            <div class="slide-info">
+              <span class="slide-num">13 / 20</span>
+              <p class="slide-caption">ngide datengin ke Lampung 🚌✨</p>
+              <p class="slide-quote">"Surprise terbaik: kamu tiba-tiba ada di depan pintu."</p>
+            </div>
+          </div>
+
+          <div class="slide-card">
+            <div class="slide-img-wrap">
+              <img src="photos/foto14.jpg" alt="Foto 14" onerror="handleImgError(this)" />
+              <div class="slide-placeholder">📸</div>
+            </div>
+            <div class="slide-info">
+              <span class="slide-num">14 / 20</span>
+              <p class="slide-caption">Bukit Aslan 🏔️🌿</p>
+              <p class="slide-quote">"Pemandangan indah jadi lebih indah karena kamu ada."</p>
+            </div>
+          </div>
+
+          <div class="slide-card">
+            <div class="slide-img-wrap">
+              <img src="photos/foto15.jpg" alt="Foto 15" onerror="handleImgError(this)" />
+              <div class="slide-placeholder">📸</div>
+            </div>
+            <div class="slide-info">
+              <span class="slide-num">15 / 20</span>
+              <p class="slide-caption">makan sushi mengakhiri tahun 2025 🍣🎉</p>
+              <p class="slide-quote">"Tutup tahun dengan orang tersayang — sempurna."</p>
+            </div>
+          </div>
+
+          <div class="slide-card">
+            <div class="slide-img-wrap">
+              <img src="photos/foto16.jpg" alt="Foto 16" onerror="handleImgError(this)" />
+              <div class="slide-placeholder">📸</div>
+            </div>
+            <div class="slide-info">
+              <span class="slide-num">16 / 20</span>
+              <p class="slide-caption">masih dengan aku, kamu, dan Lampung 🌴💕</p>
+              <p class="slide-quote">"Lampung jadi saksi bisu cerita kita."</p>
+            </div>
+          </div>
+
+          <div class="slide-card">
+            <div class="slide-img-wrap">
+              <img src="photos/foto17.jpg" alt="Foto 17" onerror="handleImgError(this)" />
+              <div class="slide-placeholder">📸</div>
+            </div>
+            <div class="slide-info">
+              <span class="slide-num">17 / 20</span>
+              <p class="slide-caption">hunting makanan enak di Lampung yeuyy 🍜😋</p>
+              <p class="slide-quote">"Perut kenyang, hati lebih kenyang lagi."</p>
+            </div>
+          </div>
+
+          <div class="slide-card">
+            <div class="slide-img-wrap">
+              <img src="photos/foto18.jpg" alt="Foto 18" onerror="handleImgError(this)" />
+              <div class="slide-placeholder">📸</div>
+            </div>
+            <div class="slide-info">
+              <span class="slide-num">18 / 20</span>
+              <p class="slide-caption">mancing edition 🎣😄</p>
+              <p class="slide-quote">"Nunggu ikan bareng itu ternyata seru juga."</p>
+            </div>
+          </div>
+
+          <div class="slide-card">
+            <div class="slide-img-wrap">
+              <img src="photos/foto19.jpg" alt="Foto 19" onerror="handleImgError(this)" />
+              <div class="slide-placeholder">📸</div>
+            </div>
+            <div class="slide-info">
+              <span class="slide-num">19 / 20</span>
+              <p class="slide-caption">lucukk 🥰</p>
+              <p class="slide-quote">"Foto random yang jadi favorit."</p>
+            </div>
+          </div>
+
+          <div class="slide-card">
+            <div class="slide-img-wrap">
+              <img src="photos/foto20.jpg" alt="Foto 20" onerror="handleImgError(this)" />
+              <div class="slide-placeholder">📸</div>
+            </div>
+            <div class="slide-info">
+              <span class="slide-num">20 / 20</span>
+              <p class="slide-caption">tiba-tiba di Jakarta nih 🌆</p>
+              <p class="slide-quote">"Kota manapun jadi seru kalau bareng kamu."</p>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <div class="photo-card" onclick="openModal(1)">
-        <div class="photo-frame">
-          <img src="photos/foto2.jpg" alt="Momen 2" onerror="handleImgError(this)" />
-          <div class="photo-placeholder">📸<br/>foto2.jpg</div>
-        </div>
-        <div class="photo-caption">
-          <span class="caption-num">02</span>
-          <p>"Di antara semua hal yang kumiliki, kamu adalah favoritku. 💛"</p>
-        </div>
-      </div>
+      <button class="slide-btn next-btn" onclick="changeSlide(1)">›</button>
+    </div>
 
-      <div class="photo-card" onclick="openModal(2)">
-        <div class="photo-frame">
-          <img src="photos/foto3.jpg" alt="Momen 3" onerror="handleImgError(this)" />
-          <div class="photo-placeholder">📸<br/>foto3.jpg</div>
-        </div>
-        <div class="photo-caption">
-          <span class="caption-num">03</span>
-          <p>"Bersama kamu, bahkan hari biasa terasa luar biasa. ✨"</p>
-        </div>
-      </div>
+    <!-- Dots -->
+    <div class="slide-dots" id="slideDots"></div>
 
-      <div class="photo-card" onclick="openModal(3)">
-        <div class="photo-frame">
-          <img src="photos/foto4.jpg" alt="Momen 4" onerror="handleImgError(this)" />
-          <div class="photo-placeholder">📸<br/>foto4.jpg</div>
-        </div>
-        <div class="photo-caption">
-          <span class="caption-num">04</span>
-          <p>"Perjalanan terbaik adalah yang kulewati bersamamu. 🛤️"</p>
-        </div>
-      </div>
+    <!-- Thumbnail strip -->
+    <div class="thumb-strip" id="thumbStrip"></div>
+  </section>
 
-      <div class="photo-card" onclick="openModal(4)">
-        <div class="photo-frame">
-          <img src="photos/foto5.jpg" alt="Momen 5" onerror="handleImgError(this)" />
-          <div class="photo-placeholder">📸<br/>foto5.jpg</div>
-        </div>
-        <div class="photo-caption">
-          <span class="caption-num">05</span>
-          <p>"Kamu adalah tempat pulang yang selalu kunantikan. 🏠💕"</p>
-        </div>
-      </div>
+  <!-- 🎮 MINI GAME -->
+  <section class="game-section" id="game">
+    <div class="section-header">
+      <h2>Teka-Teki Cinta 💌</h2>
+      <p>Seberapa kenal kamu sama pasanganmu?</p>
+    </div>
 
-      <div class="photo-card" onclick="openModal(5)">
-        <div class="photo-frame">
-          <img src="photos/foto6.jpg" alt="Momen 6" onerror="handleImgError(this)" />
-          <div class="photo-placeholder">📸<br/>foto6.jpg</div>
-        </div>
-        <div class="photo-caption">
-          <span class="caption-num">06</span>
-          <p>"Tawa kita adalah melodi terindah yang pernah kudengar. 🎵"</p>
-        </div>
-      </div>
-
-      <div class="photo-card" onclick="openModal(6)">
-        <div class="photo-frame">
-          <img src="photos/foto7.jpg" alt="Momen 7" onerror="handleImgError(this)" />
-          <div class="photo-placeholder">📸<br/>foto7.jpg</div>
-        </div>
-        <div class="photo-caption">
-          <span class="caption-num">07</span>
-          <p>"Enam tahun dan aku masih jatuh cinta setiap harinya. 🌹"</p>
-        </div>
-      </div>
-
-      <div class="photo-card" onclick="openModal(7)">
-        <div class="photo-frame">
-          <img src="photos/foto8.jpg" alt="Momen 8" onerror="handleImgError(this)" />
-          <div class="photo-placeholder">📸<br/>foto8.jpg</div>
-        </div>
-        <div class="photo-caption">
-          <span class="caption-num">08</span>
-          <p>"Kamu adalah petualangan terbaik yang Tuhan tuliskan untukku. 🌟"</p>
-        </div>
-      </div>
-
-      <div class="photo-card" onclick="openModal(8)">
-        <div class="photo-frame">
-          <img src="photos/foto9.jpg" alt="Momen 9" onerror="handleImgError(this)" />
-          <div class="photo-placeholder">📸<br/>foto9.jpg</div>
-        </div>
-        <div class="photo-caption">
-          <span class="caption-num">09</span>
-          <p>"Genggaman tanganmu adalah rumah yang selalu kurindu. 🤝💗"</p>
-        </div>
-      </div>
-
-      <div class="photo-card" onclick="openModal(9)">
-        <div class="photo-frame">
-          <img src="photos/foto10.jpg" alt="Momen 10" onerror="handleImgError(this)" />
-          <div class="photo-placeholder">📸<br/>foto10.jpg</div>
-        </div>
-        <div class="photo-caption">
-          <span class="caption-num">10</span>
-          <p>"Bersamamu, setiap detik adalah hadiah yang berharga. ⏳🎁"</p>
-        </div>
-      </div>
-
-      <div class="photo-card" onclick="openModal(10)">
-        <div class="photo-frame">
-          <img src="photos/foto11.jpg" alt="Momen 11" onerror="handleImgError(this)" />
-          <div class="photo-placeholder">📸<br/>foto11.jpg</div>
-        </div>
-        <div class="photo-caption">
-          <span class="caption-num">11</span>
-          <p>"Kamu membuatku percaya bahwa cinta sejati itu nyata. 💌"</p>
-        </div>
-      </div>
-
-      <div class="photo-card" onclick="openModal(11)">
-        <div class="photo-frame">
-          <img src="photos/foto12.jpg" alt="Momen 12" onerror="handleImgError(this)" />
-          <div class="photo-placeholder">📸<br/>foto12.jpg</div>
-        </div>
-        <div class="photo-caption">
-          <span class="caption-num">12</span>
-          <p>"Masa depan terasa lebih cerah karena kamu ada di sana. ☀️"</p>
-        </div>
-      </div>
-
-      <div class="photo-card" onclick="openModal(12)">
-        <div class="photo-frame">
-          <img src="photos/foto13.jpg" alt="Momen 13" onerror="handleImgError(this)" />
-          <div class="photo-placeholder">📸<br/>foto13.jpg</div>
-        </div>
-        <div class="photo-caption">
-          <span class="caption-num">13</span>
-          <p>"Bukan hanya 6 tahun, tapi seumur hidup bersamamu. 👫"</p>
-        </div>
-      </div>
-
-      <div class="photo-card" onclick="openModal(13)">
-        <div class="photo-frame">
-          <img src="photos/foto14.jpg" alt="Momen 14" onerror="handleImgError(this)" />
-          <div class="photo-placeholder">📸<br/>foto14.jpg</div>
-        </div>
-        <div class="photo-caption">
-          <span class="caption-num">14</span>
-          <p>"Kamu adalah warna di setiap halaman cerita hidupku. 🎨"</p>
-        </div>
-      </div>
-
-      <div class="photo-card" onclick="openModal(14)">
-        <div class="photo-frame">
-          <img src="photos/foto15.jpg" alt="Momen 15" onerror="handleImgError(this)" />
-          <div class="photo-placeholder">📸<br/>foto15.jpg</div>
-        </div>
-        <div class="photo-caption">
-          <span class="caption-num">15</span>
-          <p>"Setiap perjalanan bersamamu adalah cerita yang ingin kuulang. 🗺️✨"</p>
-        </div>
-      </div>
-
-      <div class="photo-card" onclick="openModal(15)">
-        <div class="photo-frame">
-          <img src="photos/foto16.jpg" alt="Momen 16" onerror="handleImgError(this)" />
-          <div class="photo-placeholder">📸<br/>foto16.jpg</div>
-        </div>
-        <div class="photo-caption">
-          <span class="caption-num">16</span>
-          <p>"Monica & Rizki — Dari hari ini sampai selalu. 💍🌸"</p>
-        </div>
-      </div>
-
+    <div class="game-card">
+      <div class="game-progress-bar"><div class="game-progress-fill" id="progressFill"></div></div>
+      <p class="game-q-num" id="qNum">Pertanyaan 1 / 5</p>
+      <p class="game-question" id="gameQuestion">Loading...</p>
+      <div class="game-options" id="gameOptions"></div>
+      <div class="game-feedback" id="gameFeedback"></div>
+      <button class="btn-next-q" id="btnNextQ" style="display:none" onclick="nextQuestion()">Pertanyaan Berikutnya →</button>
+      <div class="game-result" id="gameResult" style="display:none"></div>
     </div>
   </section>
 
-  <!-- 💌 LOVE LETTER SECTION -->
+  <!-- 💌 LOVE LETTER -->
   <section class="letter-section">
     <div class="letter-card">
       <div class="letter-header">💌 Surat Cinta</div>
       <div class="letter-body">
         <p>Untuk Rizki tersayang,</p>
         <br/>
-        <p>Enam tahun bukanlah waktu yang sebentar. Ada tawa, ada air mata, ada rindu yang panjang — dan semuanya kita lalui bersama. Di setiap momen itu, aku selalu bersyukur kamu ada.</p>
+        <p>Dari teman SD yang dulu cuma teman main, sampai hari ini kamu jadi orang yang paling aku sayang — perjalanan kita beneran gak main-main, Ki.</p>
         <br/>
-        <p>Kamu adalah orang yang mengajariku bahwa cinta bukan hanya rasa, tapi pilihan yang kita perbarui setiap harinya. Dan aku memilihmu — kemarin, hari ini, dan selamanya.</p>
+        <p>LDR, beda kota, beda kampus — semua kita laluin bareng. Tiap libur semester yang kita tunggu-tunggu, tiap VC tengah malam, tiap surprise yang bikin hati mau copot — itu semua yang bikin kita makin kuat.</p>
         <br/>
-        <p>Terima kasih sudah ada. Terima kasih sudah bertahan. Terima kasih sudah menjadi kamu.</p>
+        <p>Terima kasih udah milih aku setiap harinya. Terima kasih udah sabar. Dan terima kasih udah jadi rumah yang selalu bikin aku mau pulang.</p>
         <br/>
         <p class="letter-sign">Dengan cinta penuh,<br/><em>Monica 🌸</em></p>
       </div>
     </div>
   </section>
 
-  <!-- 🎊 FOOTER -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-heart">💕</div>
     <p>Monica & Rizki</p>
-    <p class="footer-sub">6 Tahun, Satu Hati</p>
+    <p class="footer-sub">Dari SD sampai selamanya</p>
     <p class="footer-tiny">Made with love 🌸</p>
   </footer>
 
-  <!-- MODAL LIGHTBOX -->
+  <!-- MODAL -->
   <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
     <div class="modal-box" onclick="event.stopPropagation()">
       <button class="modal-close" onclick="closeModal()">✕</button>
@@ -261,10 +360,11 @@
         <img id="modalImg" src="" alt="" />
         <div id="modalPlaceholder" class="modal-placeholder">📸</div>
       </div>
+      <p id="modalCaption" class="modal-caption"></p>
       <p id="modalQuote" class="modal-quote"></p>
       <div class="modal-nav">
-        <button onclick="prevPhoto()">← Sebelumnya</button>
-        <button onclick="nextPhoto()">Selanjutnya →</button>
+        <button onclick="modalPrev()">← Sebelumnya</button>
+        <button onclick="modalNext()">Selanjutnya →</button>
       </div>
     </div>
   </div>
