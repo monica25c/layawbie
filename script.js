@@ -1,30 +1,32 @@
 // ========================================
-//   MONICA & RIZKI — script.js v2
+//   cibinong x cibubub — script.js
 // ========================================
 
-// ───────── DATA FOTO ─────────
+// ───────── PHOTOS DATA ─────────
 const photos = [
-  { src: 'photos/foto1.jpg',  caption: 'teman SD cinta monyet 🥺',                                    quote: '"Siapa sangka teman kecil jadi cinta selamanya."' },
-  { src: 'photos/foto2.jpg',  caption: 'sebelum jadian jadi bocil epep dulu 😂',                      quote: '"Fase awkward yang sekarang jadi cerita lucu."' },
-  { src: 'photos/foto3.jpg',  caption: 'masuk SMA pas awal covid, canggung bgt kita oi 😅',           quote: '"Pandemi datang, tapi perasaan kita malah makin kuat."' },
-  { src: 'photos/foto4.jpg',  caption: 'ngedate ala anak sekolahan 🏫💕',                             quote: '"Sederhana tapi berasa paling bahagia."' },
-  { src: 'photos/foto5.jpg',  caption: 'ppp mau kondangan? 😄👔',                                     quote: '"Outfit matching tanpa janjian, emang udah jodoh."' },
-  { src: 'photos/foto6.jpg',  caption: 'banyak foto SMA yak, adanya pas pepisahan SMA doang 🎓',      quote: '"Babak SMA selesai, tapi cerita kita baru dimulai."' },
-  { src: 'photos/foto7.jpg',  caption: 'ke Gacoan pertama kali, aku UTBK dia udah lulus SNBP coy 🔥',quote: '"Rayain pencapaian bareng, itulah kita."' },
-  { src: 'photos/foto8.jpg',  caption: 'rencanain satu kampus bareng malah LDR hikss 😭',              quote: '"Rencananya beda, tapi hatinya tetap satu."' },
-  { src: 'photos/foto9.jpg',  caption: 'LDR dimulai, mari kita mulai perang ini 💪',                  quote: '"Jarak cuma angka, rasa kita yang menentukan."' },
-  { src: 'photos/foto10.jpg', caption: 'ketemunya libur semester aja, hiks 🗓️😢',                    quote: '"Tiap pertemuan jadi semakin berharga."' },
-  { src: 'photos/foto11.jpg', caption: 'ini juga foto pas libur semester 📅',                         quote: '"Setiap libur adalah hadiah yang paling ditunggu."' },
-  { src: 'photos/foto12.jpg', caption: 'LDR, VC-an mulu 📱💬',                                        quote: '"Layar HP jadi jendela setiap harinya."' },
-  { src: 'photos/foto13.jpg', caption: 'ngide datengin ke Lampung 🚌✨',                              quote: '"Surprise terbaik: kamu tiba-tiba ada di depan pintu."' },
-  { src: 'photos/foto14.jpg', caption: 'Bukit Aslan 🏔️🌿',                                           quote: '"Pemandangan indah jadi lebih indah karena kamu ada."' },
-  { src: 'photos/foto15.jpg', caption: 'makan sushi mengakhiri tahun 2025 🍣🎉',                      quote: '"Tutup tahun dengan orang tersayang, sempurna."' },
-  { src: 'photos/foto16.jpg', caption: 'masih dengan aku, kamu, dan Lampung 🌴💕',                    quote: '"Lampung jadi saksi bisu cerita kita."' },
-  { src: 'photos/foto17.jpg', caption: 'hunting makanan enak di Lampung yeuyy 🍜😋',                 quote: '"Perut kenyang, hati lebih kenyang lagi."' },
-  { src: 'photos/foto18.jpg', caption: 'mancing edition 🎣😄',                                        quote: '"Nunggu ikan bareng itu ternyata seru juga."' },
-  { src: 'photos/foto19.jpg', caption: 'lucukk 🥰',                                                   quote: '"Foto random yang jadi favorit."' },
-  { src: 'photos/foto20.jpg', caption: 'tiba-tiba di Jakarta nih 🌆',                                 quote: '"Kota manapun jadi seru kalau bareng kamu."' },
+  { src: 'photos/foto1.jpg',  caption: 'teman SD cinta monyet 🥺',                                      quote: '"who knew a childhood friend could turn into something like this."' },
+  { src: 'photos/foto2.jpg',  caption: 'sebelum jadian jadi bocil epep dulu 😂',                        quote: '"even the awkward phase had its charm — we just didn\'t know it yet."' },
+  { src: 'photos/foto3.jpg',  caption: 'masuk SMA pas awal covid, canggung bgt kita oi 😅',             quote: '"the world was on pause, but feelings? they didn\'t stop."' },
+  { src: 'photos/foto4.jpg',  caption: 'ngedate ala anak sekolahan 🏫💕',                               quote: '"simple dates hit different when you\'re with the right person."' },
+  { src: 'photos/foto5.jpg',  caption: 'ppp mau kondangan? 😄👔',                                       quote: '"accidentally coordinated. definitely meant to be."' },
+  { src: 'photos/foto6.jpg',  caption: 'banyak foto SMA yak, adanya pas pepisahan SMA doang 🎓',        quote: '"graduation day — the school era is over, but we\'re still going."' },
+  { src: 'photos/foto7.jpg',  caption: 'ke Gacoan pertama kali, aku UTBK dia udah lulus SNBP coy 🔥',  quote: '"your win felt like mine too. that\'s just how it works with us."' },
+  { src: 'photos/foto8.jpg',  caption: 'rencanain satu kampus bareng malah LDR hikss 😭',               quote: '"different cities, same feeling. we figured it out anyway."' },
+  { src: 'photos/foto9.jpg',  caption: 'LDR dimulai, mari kita mulai perang ini 💪',                    quote: '"distance is just a test — and so far, we keep passing it."' },
+  { src: 'photos/foto10.jpg', caption: 'ketemunya libur semester aja, hiks 🗓️😢',                      quote: '"every reunion felt like the first time all over again."' },
+  { src: 'photos/foto11.jpg', caption: 'ini juga foto pas libur semester 📅',                           quote: '"short on time, never short on memories."' },
+  { src: 'photos/foto12.jpg', caption: 'LDR, VC-an mulu 📱💬',                                          quote: '"fell asleep on VC more times than we can count. no regrets."' },
+  { src: 'photos/foto13.jpg', caption: 'ngide datengin ke Lampung 🚌✨',                                quote: '"sometimes love shows up at the door before it sends a text."' },
+  { src: 'photos/foto14.jpg', caption: 'Bukit Aslan 🏔️🌿',                                             quote: '"the view was stunning, but honestly — so were you."' },
+  { src: 'photos/foto15.jpg', caption: 'makan sushi mengakhiri tahun 2025 🍣🎉',                        quote: '"2025 ending with sushi and you. can\'t complain."' },
+  { src: 'photos/foto16.jpg', caption: 'masih dengan aku, kamu, dan Lampung 🌴💕',                      quote: '"different place, same feeling. it never really changes."' },
+  { src: 'photos/foto17.jpg', caption: 'hunting makanan enak di Lampung yeuyy 🍜😋',                   quote: '"our love language: finding the best local food together."' },
+  { src: 'photos/foto18.jpg', caption: 'mancing edition 🎣😄',                                          quote: '"best conversations happen when there\'s nowhere to be."' },
+  { src: 'photos/foto19.jpg', caption: 'lucukk 🥰',                                                     quote: '"this photo lives rent-free in my head."' },
+  { src: 'photos/foto20.jpg', caption: 'tiba-tiba di Jakarta nih 🌆',                                   quote: '"any city feels right when you\'re next to me."' },
 ];
+
+const TOTAL = photos.length;
 
 // ───────── PETALS ─────────
 const petalEmojis = ['🌸','🌺','💮','🌷','🌼'];
@@ -45,10 +47,8 @@ function createPetal() {
 for (let i = 0; i < 12; i++) setTimeout(createPetal, i * 400);
 setInterval(createPetal, 1000);
 
-// ───────── DAY COUNTER ─────────
-// Ganti tanggal jadian di sini (tahun, bulan-1, tanggal)
-const startDate = new Date(2020, 6, 30); // 30 Juli 2020
-
+// ───────── COUNTER ─────────
+const startDate = new Date(2020, 6, 30);
 function updateCounter() {
   const today = new Date();
   const diffMs = today - startDate;
@@ -61,106 +61,155 @@ function updateCounter() {
 }
 updateCounter();
 
-// ───────── SLIDESHOW ─────────
-let currentSlide = 0;
-const total = photos.length;
-
-function buildThumbs() {
-  const strip = document.getElementById('thumbStrip');
-  const dots  = document.getElementById('slideDots');
-  if (!strip || !dots) return;
-  photos.forEach((p, i) => {
-    // thumb
-    const t = document.createElement('div');
-    t.className = 'thumb' + (i === 0 ? ' active' : '');
-    t.onclick = () => goToSlide(i);
-    const img = document.createElement('img');
-    img.src = p.src;
-    img.onerror = () => {
-      img.style.display = 'none';
-      const n = document.createElement('div');
-      n.className = 'thumb-num';
-      n.textContent = String(i + 1).padStart(2, '0');
-      t.appendChild(n);
-    };
-    t.appendChild(img);
-    strip.appendChild(t);
-    // dot
-    const d = document.createElement('button');
-    d.className = 'dot' + (i === 0 ? ' active' : '');
-    d.setAttribute('aria-label', 'Foto ' + (i+1));
-    d.onclick = () => goToSlide(i);
-    dots.appendChild(d);
-  });
-}
-
-function goToSlide(index) {
-  currentSlide = (index + total) % total;
-  const track = document.getElementById('slideshowTrack');
-  if (track) track.style.transform = `translateX(-${currentSlide * 100}%)`;
-  // update dots
-  document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
-  // update thumbs
-  const thumbs = document.querySelectorAll('.thumb');
-  thumbs.forEach((t, i) => t.classList.toggle('active', i === currentSlide));
-  // scroll thumb into view
-  if (thumbs[currentSlide]) thumbs[currentSlide].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-}
-
-function changeSlide(dir) { goToSlide(currentSlide + dir); }
-
-// Click on slide image → open modal
-document.addEventListener('DOMContentLoaded', () => {
-  buildThumbs();
-  document.querySelectorAll('.slide-img-wrap').forEach((wrap, i) => {
-    wrap.addEventListener('click', () => openModal(i));
-  });
-  // Swipe support
-  const track = document.getElementById('slideshowTrack');
-  if (track) {
-    let startX = 0;
-    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-    track.addEventListener('touchend', e => {
-      const diff = startX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 50) changeSlide(diff > 0 ? 1 : -1);
-    });
-  }
-  initGame();
-});
-
-// Keyboard arrows
-document.addEventListener('keydown', e => {
-  const modal = document.getElementById('modalOverlay');
-  if (modal && modal.classList.contains('active')) {
-    if (e.key === 'ArrowRight') modalNext();
-    if (e.key === 'ArrowLeft')  modalPrev();
-    if (e.key === 'Escape')     closeModal();
-  } else {
-    if (e.key === 'ArrowRight') changeSlide(1);
-    if (e.key === 'ArrowLeft')  changeSlide(-1);
-  }
-});
-
-// ───────── IMAGE ERROR HANDLER ─────────
+// ───────── IMAGE ERROR ─────────
 function handleImgError(img) {
   img.parentElement.classList.add('no-photo');
 }
 
-// ───────── MODAL ─────────
-let modalIndex = 0;
+// ───────── STACK CARD SYSTEM ─────────
+let stackIndex = 0; // which photo is on top
+const cardEls = [];
 
+function initStack() {
+  const container = document.getElementById('stackContainer');
+  if (!container) return;
+
+  const rawCards = Array.from(container.querySelectorAll('.stack-card'));
+  rawCards.forEach((card, i) => cardEls.push(card));
+
+  renderStack();
+  attachDragListeners();
+  updateStackCounter();
+}
+
+function renderStack() {
+  cardEls.forEach((card, i) => {
+    const relPos = (i - stackIndex + TOTAL) % TOTAL;
+    card.removeAttribute('data-pos');
+    if (relPos < 4) {
+      card.setAttribute('data-pos', relPos);
+      card.classList.remove('swipe-left', 'swipe-right');
+    } else {
+      card.style.opacity = '0';
+      card.style.pointerEvents = 'none';
+      card.removeAttribute('data-pos');
+    }
+  });
+  // make sure current top is visible
+  cardEls[stackIndex].style.opacity = '';
+  cardEls[stackIndex].style.pointerEvents = '';
+}
+
+function stackNext() {
+  const topCard = cardEls[stackIndex];
+  topCard.classList.add('swipe-left');
+  topCard.classList.remove('flipped');
+  setTimeout(() => {
+    stackIndex = (stackIndex + 1) % TOTAL;
+    renderStack();
+    updateStackCounter();
+  }, 380);
+}
+
+function stackPrev() {
+  stackIndex = (stackIndex - 1 + TOTAL) % TOTAL;
+  const prevCard = cardEls[stackIndex];
+  prevCard.classList.remove('swipe-left', 'swipe-right', 'flipped');
+  renderStack();
+  updateStackCounter();
+}
+
+function updateStackCounter() {
+  const el = document.getElementById('stackCounter');
+  if (el) el.textContent = `${stackIndex + 1} / ${TOTAL}`;
+}
+
+// Tap to flip top card
+function attachDragListeners() {
+  cardEls.forEach((card) => {
+    let startX = 0, startY = 0, moved = false;
+    let isDragging = false;
+
+    // Touch
+    card.addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      moved = false;
+      isDragging = true;
+    }, { passive: true });
+
+    card.addEventListener('touchmove', e => {
+      if (!isDragging) return;
+      const dx = e.touches[0].clientX - startX;
+      const dy = e.touches[0].clientY - startY;
+      if (Math.abs(dx) > 8 || Math.abs(dy) > 8) moved = true;
+      // live drag on top card
+      if (card.getAttribute('data-pos') === '0') {
+        card.style.transition = 'none';
+        card.style.transform = `translateX(${dx}px) rotate(${dx * 0.08}deg)`;
+      }
+    }, { passive: true });
+
+    card.addEventListener('touchend', e => {
+      isDragging = false;
+      if (card.getAttribute('data-pos') !== '0') return;
+      const dx = e.changedTouches[0].clientX - startX;
+      card.style.transition = '';
+      card.style.transform = '';
+      if (!moved) {
+        card.classList.toggle('flipped');
+      } else if (Math.abs(dx) > 60) {
+        dx > 0 ? card.classList.add('swipe-right') : card.classList.add('swipe-left');
+        card.classList.remove('flipped');
+        setTimeout(() => {
+          stackIndex = (stackIndex + 1) % TOTAL;
+          renderStack();
+          updateStackCounter();
+        }, 380);
+      }
+    });
+
+    // Mouse
+    card.addEventListener('mousedown', e => {
+      startX = e.clientX;
+      startY = e.clientY;
+      moved = false;
+      isDragging = true;
+    });
+
+    document.addEventListener('mousemove', e => {
+      if (!isDragging || card.getAttribute('data-pos') !== '0') return;
+      const dx = e.clientX - startX;
+      const dy = e.clientY - startY;
+      if (Math.abs(dx) > 5 || Math.abs(dy) > 5) moved = true;
+      card.style.transition = 'none';
+      card.style.transform = `translateX(${dx}px) rotate(${dx * 0.06}deg)`;
+    });
+
+    document.addEventListener('mouseup', e => {
+      if (!isDragging || card.getAttribute('data-pos') !== '0') { isDragging = false; return; }
+      isDragging = false;
+      const dx = e.clientX - startX;
+      card.style.transition = '';
+      card.style.transform = '';
+      if (!moved) {
+        card.classList.toggle('flipped');
+      } else if (Math.abs(dx) > 80) {
+        dx > 0 ? card.classList.add('swipe-right') : card.classList.add('swipe-left');
+        card.classList.remove('flipped');
+        setTimeout(() => {
+          stackIndex = (stackIndex + 1) % TOTAL;
+          renderStack();
+          updateStackCounter();
+        }, 380);
+      }
+    });
+  });
+}
+
+// ───────── MODAL ─────────
 function openModal(index) {
-  modalIndex = index;
-  renderModal();
-  document.getElementById('modalOverlay').classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-function closeModal() {
-  document.getElementById('modalOverlay').classList.remove('active');
-  document.body.style.overflow = '';
-}
-function renderModal() {
-  const d = photos[modalIndex];
+  const d = photos[index];
   const img = document.getElementById('modalImg');
   const ph  = document.getElementById('modalPlaceholder');
   img.src = d.src;
@@ -169,47 +218,65 @@ function renderModal() {
   img.onerror = () => { img.style.display = 'none'; ph.style.display = 'flex'; };
   document.getElementById('modalCaption').textContent = d.caption;
   document.getElementById('modalQuote').textContent   = d.quote;
+  document.getElementById('modalOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
 }
-function modalNext() { modalIndex = (modalIndex + 1) % total; renderModal(); }
-function modalPrev() { modalIndex = (modalIndex - 1 + total) % total; renderModal(); }
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
 
-// ───────── MINI GAME ─────────
+// ───────── GAME TABS ─────────
+function switchGame(tab) {
+  document.querySelectorAll('.game-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.game-panel').forEach(p => p.style.display = 'none');
+  if (tab === 'quiz') {
+    document.querySelectorAll('.game-tab')[0].classList.add('active');
+    document.getElementById('panelQuiz').style.display = 'block';
+  } else {
+    document.querySelectorAll('.game-tab')[1].classList.add('active');
+    document.getElementById('panelFlip').style.display = 'block';
+  }
+}
+
+// ───────── QUIZ ─────────
 const questions = [
   {
-    q: '👀 gimana awal cerita mon sama ki?',
+    q: '👀 gimana awal cerita ini semua?',
     opts: ['ketemu di mall', 'temen SD cinta monyet', 'kenalan online', 'dikenalain temen'],
     ans: 1,
-    feedback: { right: '✅ bener! dari SD emang udah ada chemistry-nya 🥺', wrong: '❌ salah, mereka temen SD yang kena cinta monyet lho!' }
+    feedback: { right: '✅ bener! dari SD emang udah ada vibe-nya 🥺', wrong: '❌ salah, mereka temen SD yang kena cinta monyet lho!' }
   },
   {
     q: '😭 pas masuk kuliah, apa yang terjadi?',
     opts: ['satu kampus', 'LDR beda kota', 'putus dulu', 'nikah duluan'],
     ans: 1,
-    feedback: { right: '✅ yep, niat satu kampus malah LDR 😭', wrong: '❌ bukan, LDR beda kota dong, dramatis abis!' }
+    feedback: { right: '✅ yep, niat satu kampus malah LDR 😭', wrong: '❌ bukan, LDR beda kota dong, plot twist abis!' }
   },
   {
-    q: '🍜 abis Rizki surprise dateng, ngapain dulu?',
+    q: '🍜 abis surprise dateng, ngapain dulu?',
     opts: ['nonton bioskop', 'mancing', 'hunting makan enak', 'foto-foto dulu'],
     ans: 2,
     feedback: { right: '✅ yep, makan dulu yang penting 🍜', wrong: '❌ hunting makan enak lah, prioritas!' }
   },
   {
-    q: '🍣 mereka lakuin apa buat nutup tahun 2025?',
-    opts: ['makan sushi bareng', 'naik gunung', 'anniversary fancy', 'konser'],
+    q: '🍣 nutup tahun 2025 ngapain?',
+    opts: ['makan sushi', 'naik gunung', 'anniversary fancy', 'konser'],
     ans: 0,
-    feedback: { right: '✅ sushi untuk nutup 2025, chill banget 🎉', wrong: '❌ makan sushi dong buat nutup tahun 2025!' }
+    feedback: { right: '✅ sushi untuk nutup 2025, lowkey cute 🎉', wrong: '❌ makan sushi dong buat nutup tahun 2025!' }
   },
   {
-    q: '🔥 pertama kali makan bareng setelah lulus SMA, dimana?',
+    q: '🔥 makan bareng pertama setelah lulus SMA, dimana?',
     opts: ['KFC', 'Gacoan', 'McD', 'warteg'],
     ans: 1,
-    feedback: { right: '✅ Gacoan! sambil rayain dia lulus SNBP duluan 🔥', wrong: '❌ Gacoan dong! sambil baper dia lulus duluan 😭' }
+    feedback: { right: '✅ Gacoan! sambil rayain dia lulus SNBP duluan 🔥', wrong: '❌ Gacoan dong! dia lulus duluan, coy 😭' }
   }
 ];
 
-let qIndex = 0;
-let score  = 0;
-let answered = false;
+let qIndex = 0, score = 0, answered = false;
 
 function initGame() {
   qIndex = 0; score = 0; answered = false;
@@ -224,9 +291,7 @@ function renderQuestion() {
   document.getElementById('gameFeedback').textContent = '';
   document.getElementById('btnNextQ').style.display = 'none';
   document.getElementById('gameResult').style.display = 'none';
-  const fill = (((qIndex) / questions.length) * 100);
-  document.getElementById('progressFill').style.width = fill + '%';
-
+  document.getElementById('progressFill').style.width = ((qIndex / questions.length) * 100) + '%';
   const optsEl = document.getElementById('gameOptions');
   optsEl.innerHTML = '';
   q.opts.forEach((opt, i) => {
@@ -262,10 +327,7 @@ function checkAnswer(chosen) {
   }
 }
 
-function nextQuestion() {
-  qIndex++;
-  renderQuestion();
-}
+function nextQuestion() { qIndex++; renderQuestion(); }
 
 function showResult() {
   document.getElementById('progressFill').style.width = '100%';
@@ -274,22 +336,19 @@ function showResult() {
   document.getElementById('btnNextQ').style.display = 'none';
   document.getElementById('qNum').textContent = 'selesai! 🎉';
   document.getElementById('gameQuestion').textContent = '';
-
   const resultEl = document.getElementById('gameResult');
   resultEl.style.display = 'block';
-
   let emoji, title, msg;
   if (score === 5) {
     emoji = '🌸'; title = 'tau banget sih!';
-    msg = `${score}/5 bener semua, literally hapal cerita kita luar dalem 💕`;
+    msg = `${score}/5 bener semua. literally hapal cerita ini luar dalem 💕`;
   } else if (score >= 3) {
     emoji = '💕'; title = 'lumayan tau!';
-    msg = `${score}/5, masih ada yang kelewat nih, baca lagi dari atas 😄`;
+    msg = `${score}/5, masih ada yang kelewat nih, scroll lagi dari atas 😄`;
   } else {
     emoji = '😭'; title = 'kamu siapa?';
-    msg = `${score}/5 doang, ini orang lain apa gimana 💀 scroll lagi dari atas dong!`;
+    msg = `${score}/5 doang 💀 baca dulu ceritanya dari atas!`;
   }
-
   resultEl.innerHTML = `
     <span class="result-emoji">${emoji}</span>
     <div class="result-title">${title}</div>
@@ -298,30 +357,9 @@ function showResult() {
   `;
 }
 
-// ───────── GAME TABS ─────────
-function switchGame(tab) {
-  document.querySelectorAll('.game-tab').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.game-panel').forEach(p => p.style.display = 'none');
-  if (tab === 'quiz') {
-    document.querySelectorAll('.game-tab')[0].classList.add('active');
-    document.getElementById('panelQuiz').style.display = 'block';
-  } else {
-    document.querySelectorAll('.game-tab')[1].classList.add('active');
-    document.getElementById('panelFlip').style.display = 'block';
-  }
-}
-
 // ───────── FLIP CARD GAME ─────────
-// Emoji pairs seputar cerita Monica & Rizki
-const flipEmojis = [
-  '🌸','💕','🎓','📱','✈️','🍣',
-  '🏔️','🎣','🌴','🍜','🥺','💌'
-];
-
-let flipState = {
-  flipped: [], matched: 0, moves: 0,
-  lock: false, timer: null, seconds: 0, total: 0
-};
+const flipEmojis = ['🌸','💕','🎓','📱','✈️','🍣','🏔️','🎣','🌴','🍜','🥺','💌'];
+let flipState = { flipped: [], matched: 0, moves: 0, lock: false, timer: null, seconds: 0, total: 0 };
 let currentFlipSize = 6;
 
 function showFlipIntro() {
@@ -333,13 +371,9 @@ function showFlipIntro() {
 function startFlip(pairs) {
   currentFlipSize = pairs;
   clearInterval(flipState.timer);
-
-  // pick emojis
   const pool = flipEmojis.slice(0, pairs);
   const cards = [...pool, ...pool].sort(() => Math.random() - 0.5);
-
   flipState = { flipped: [], matched: 0, moves: 0, lock: false, timer: null, seconds: 0, total: pairs };
-
   document.getElementById('flipIntro').style.display = 'none';
   document.getElementById('flipGame').style.display = 'block';
   document.getElementById('flipResult').style.display = 'none';
@@ -347,26 +381,17 @@ function startFlip(pairs) {
   document.getElementById('flipMatched').textContent = '0';
   document.getElementById('flipTotal').textContent = pairs;
   document.getElementById('flipTimer').textContent = '⏱ 0s';
-
   const grid = document.getElementById('flipGrid');
   grid.innerHTML = '';
   grid.className = `flip-grid grid-${pairs}`;
-
   cards.forEach((emoji, i) => {
     const card = document.createElement('div');
     card.className = 'flip-card';
     card.dataset.emoji = emoji;
-    card.dataset.index = i;
-    card.innerHTML = `
-      <div class="flip-card-inner">
-        <div class="flip-front">🌸</div>
-        <div class="flip-back">${emoji}</div>
-      </div>`;
+    card.innerHTML = `<div class="flip-card-inner"><div class="flip-front">🌸</div><div class="flip-back">${emoji}</div></div>`;
     card.addEventListener('click', () => onFlipClick(card));
     grid.appendChild(card);
   });
-
-  // start timer
   flipState.timer = setInterval(() => {
     flipState.seconds++;
     document.getElementById('flipTimer').textContent = `⏱ ${flipState.seconds}s`;
@@ -374,36 +399,26 @@ function startFlip(pairs) {
 }
 
 function onFlipClick(card) {
-  if (flipState.lock) return;
-  if (card.classList.contains('flipped') || card.classList.contains('matched')) return;
-
+  if (flipState.lock || card.classList.contains('flipped') || card.classList.contains('matched')) return;
   card.classList.add('flipped');
   flipState.flipped.push(card);
-
   if (flipState.flipped.length === 2) {
     flipState.lock = true;
     flipState.moves++;
     document.getElementById('flipMoves').textContent = flipState.moves;
-
     const [a, b] = flipState.flipped;
     if (a.dataset.emoji === b.dataset.emoji) {
-      // match!
       setTimeout(() => {
-        a.classList.add('matched');
-        b.classList.add('matched');
+        a.classList.add('matched'); b.classList.add('matched');
         flipState.matched++;
         document.getElementById('flipMatched').textContent = flipState.matched;
-        flipState.flipped = [];
-        flipState.lock = false;
+        flipState.flipped = []; flipState.lock = false;
         if (flipState.matched === flipState.total) endFlip();
       }, 400);
     } else {
-      // no match
       setTimeout(() => {
-        a.classList.remove('flipped');
-        b.classList.remove('flipped');
-        flipState.flipped = [];
-        flipState.lock = false;
+        a.classList.remove('flipped'); b.classList.remove('flipped');
+        flipState.flipped = []; flipState.lock = false;
       }, 900);
     }
   }
@@ -411,18 +426,18 @@ function onFlipClick(card) {
 
 function endFlip() {
   clearInterval(flipState.timer);
-  const result = document.getElementById('flipResult');
   const { moves, seconds, total } = flipState;
   let msg = '';
-  const perfect = total; // minimum possible moves
-  if (moves <= perfect + 2) {
-    msg = `${moves} percobaan, ${seconds} detik. ingatan kamu kuat banget frfr 🌸`;
-  } else if (moves <= perfect + 6) {
-    msg = `${moves} percobaan, ${seconds} detik. lumayan, tapi masih bisa lebih cepet 😄`;
-  } else {
-    msg = `${moves} percobaan, ${seconds} detik. santuy, yang penting kelar kayak LDR kita 💀`;
-  }
+  if (moves <= total + 2) msg = `${moves} tries, ${seconds}s. memory kamu kuat banget frfr 🌸`;
+  else if (moves <= total + 6) msg = `${moves} tries, ${seconds}s. lumayan, bisa lebih cepet tapi 😄`;
+  else msg = `${moves} tries, ${seconds}s. santuy, yang penting kelar kayak LDR kita 💀`;
   document.getElementById('flipResultMsg').textContent = msg;
-  result.style.display = 'block';
-  result.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  document.getElementById('flipResult').style.display = 'block';
+  document.getElementById('flipResult').scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
+
+// ───────── INIT ─────────
+document.addEventListener('DOMContentLoaded', () => {
+  initStack();
+  initGame();
+});

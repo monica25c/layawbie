@@ -10,27 +10,27 @@
 </head>
 <body>
 
-  <!-- ✨ HERO -->
+  <!-- HERO -->
   <section class="hero">
     <div class="petals-container" id="petals"></div>
     <div class="hero-content">
-      <p class="hero-sub">dari sd sampe sekarang, gak kerasa 🫠</p>
+      <p class="hero-sub">a story that wasn't planned ✨</p>
       <h1 class="hero-title">cibinong <span class="amp">&</span> cibubub</h1>
-      <p class="hero-date">udah lama banget sih kita 🫠</p>
+      <p class="hero-date">dari sd sampe sekarang, gak kerasa 🫠</p>
       <div class="heart-divider">💕</div>
-      <p class="hero-quote">"gak nyangka sih dari temen sd bisa sampe sini, frfr."</p>
+      <p class="hero-quote">"didn't expect it to go this far, but here we are."</p>
       <div class="hero-btns">
-        <a href="#slideshow" class="btn-explore">foto foto kita 📸</a>
-        <a href="#game" class="btn-game">gasken gamenya 🎮</a>
+        <a href="#gallery" class="btn-explore">our archive 📸</a>
+        <a href="#game" class="btn-game">let's play 🎮</a>
       </div>
     </div>
   </section>
 
-  <!-- 💌 COUNTER -->
+  <!-- COUNTER -->
   <section class="counter-section">
     <div class="counter-card">
       <span class="counter-num" id="days">—</span>
-      <span class="counter-label">hari kita gak kabur</span>
+      <span class="counter-label">days of us</span>
     </div>
     <div class="counter-card">
       <span class="counter-num" id="years">—</span>
@@ -38,303 +38,434 @@
     </div>
     <div class="counter-card">
       <span class="counter-num">∞</span>
-      <span class="counter-label">momen receh bareng</span>
+      <span class="counter-label">random moments</span>
     </div>
   </section>
 
-  <!-- 📸 SLIDESHOW -->
-  <section class="slideshow-section" id="slideshow">
+  <!-- GALLERY — DRAG STACK -->
+  <section class="gallery-section" id="gallery">
     <div class="section-header">
-      <h2>archive kita 📷</h2>
-      <p>geser, liat, ketawa sendiri</p>
+      <h2>our archive 📷</h2>
+      <p>drag the card, or tap to flip ✦</p>
     </div>
 
-    <div class="slideshow-wrapper">
-      <button class="slide-btn prev-btn" onclick="changeSlide(-1)">‹</button>
+    <div class="stack-container" id="stackContainer">
 
-      <div class="slideshow-track-wrap">
-        <div class="slideshow-track" id="slideshowTrack">
-
-          <div class="slide-card">
-            <div class="slide-img-wrap">
-              <img src="photos/foto1.jpg" alt="Foto 1" onerror="handleImgError(this)" />
-              <div class="slide-placeholder">📸</div>
+      <div class="stack-card" data-index="0">
+        <div class="stack-card-inner">
+          <div class="stack-front">
+            <div class="stack-img-wrap">
+              <img src="photos/foto1.jpg" alt="" onerror="handleImgError(this)" />
+              <div class="stack-placeholder">📸</div>
             </div>
-            <div class="slide-info">
-              <span class="slide-num">01 / 20</span>
-              <p class="slide-caption">teman SD cinta monyet 🥺</p>
-              <p class="slide-quote">siapa tau juga kita bisa sampe sini 💀</p>
+            <div class="stack-label">
+              <span class="stack-num">01</span>
+              <p class="stack-caption">teman SD cinta monyet 🥺</p>
+              <p class="stack-en">the beginning of everything, unknowingly.</p>
             </div>
           </div>
-
-          <div class="slide-card">
-            <div class="slide-img-wrap">
-              <img src="photos/foto2.jpg" alt="Foto 2" onerror="handleImgError(this)" />
-              <div class="slide-placeholder">📸</div>
-            </div>
-            <div class="slide-info">
-              <span class="slide-num">02 / 20</span>
-              <p class="slide-caption">sebelum jadian jadi bocil epep dulu 😂</p>
-              <p class="slide-quote">cringe tapi kangen masa ini ngl 😭</p>
-            </div>
+          <div class="stack-back">
+            <p class="stack-back-quote">"who knew a childhood friend could turn into something like this."</p>
           </div>
-
-          <div class="slide-card">
-            <div class="slide-img-wrap">
-              <img src="photos/foto3.jpg" alt="Foto 3" onerror="handleImgError(this)" />
-              <div class="slide-placeholder">📸</div>
-            </div>
-            <div class="slide-info">
-              <span class="slide-num">03 / 20</span>
-              <p class="slide-caption">masuk SMA pas awal covid, canggung bgt kita oi 😅</p>
-              <p class="slide-quote">pandemi malah jadi momen pendekatan, timing bagus banget 💀</p>
-            </div>
-          </div>
-
-          <div class="slide-card">
-            <div class="slide-img-wrap">
-              <img src="photos/foto4.jpg" alt="Foto 4" onerror="handleImgError(this)" />
-              <div class="slide-placeholder">📸</div>
-            </div>
-            <div class="slide-info">
-              <span class="slide-num">04 / 20</span>
-              <p class="slide-caption">ngedate ala anak sekolahan 🏫💕</p>
-              <p class="slide-quote">anak sekolahan ngedate, klasik banget sih 😄</p>
-            </div>
-          </div>
-
-          <div class="slide-card">
-            <div class="slide-img-wrap">
-              <img src="photos/foto5.jpg" alt="Foto 5" onerror="handleImgError(this)" />
-              <div class="slide-placeholder">📸</div>
-            </div>
-            <div class="slide-info">
-              <span class="slide-num">05 / 20</span>
-              <p class="slide-caption">ppp mau kondangan? 😄👔</p>
-              <p class="slide-quote">matching tanpa planning, udah satu frekuensi emang 🤝</p>
-            </div>
-          </div>
-
-          <div class="slide-card">
-            <div class="slide-img-wrap">
-              <img src="photos/foto6.jpg" alt="Foto 6" onerror="handleImgError(this)" />
-              <div class="slide-placeholder">📸</div>
-            </div>
-            <div class="slide-info">
-              <span class="slide-num">06 / 20</span>
-              <p class="slide-caption">banyak foto SMA yak, adanya pas pepisahan SMA doang 🎓</p>
-              <p class="slide-quote">tamat SMA, chapter baru dimulai 🎬</p>
-            </div>
-          </div>
-
-          <div class="slide-card">
-            <div class="slide-img-wrap">
-              <img src="photos/foto7.jpg" alt="Foto 7" onerror="handleImgError(this)" />
-              <div class="slide-placeholder">📸</div>
-            </div>
-            <div class="slide-info">
-              <span class="slide-num">07 / 20</span>
-              <p class="slide-caption">ke Gacoan pertama kali, aku UTBK dia daftar ulang, udah lulus SNBP duluan coy 🔥</p>
-              <p class="slide-quote">dia lulus duluan, kita tetap happy buat dia yaa 😭🔥</p>
-            </div>
-          </div>
-
-          <div class="slide-card">
-            <div class="slide-img-wrap">
-              <img src="photos/foto8.jpg" alt="Foto 8" onerror="handleImgError(this)" />
-              <div class="slide-placeholder">📸</div>
-            </div>
-            <div class="slide-info">
-              <span class="slide-num">08 / 20</span>
-              <p class="slide-caption">rencanain satu kampus bareng malah LDR hikss 😭</p>
-              <p class="slide-quote">rencana satu kampus buyar, tapi oke lah kita survive 💪</p>
-            </div>
-          </div>
-
-          <div class="slide-card">
-            <div class="slide-img-wrap">
-              <img src="photos/foto9.jpg" alt="Foto 9" onerror="handleImgError(this)" />
-              <div class="slide-placeholder">📸</div>
-            </div>
-            <div class="slide-info">
-              <span class="slide-num">09 / 20</span>
-              <p class="slide-caption">LDR dimulai, mari kita mulai perang ini 💪</p>
-              <p class="slide-quote">LDR bukan halangan katanya, oke kita buktiin 😤</p>
-            </div>
-          </div>
-
-          <div class="slide-card">
-            <div class="slide-img-wrap">
-              <img src="photos/foto10.jpg" alt="Foto 10" onerror="handleImgError(this)" />
-              <div class="slide-placeholder">📸</div>
-            </div>
-            <div class="slide-info">
-              <span class="slide-num">10 / 20</span>
-              <p class="slide-caption">ketemunya libur semester aja, hiks 🗓️😢</p>
-              <p class="slide-quote">tiap ketemu rasanya kayak recharge baterai yang udah 1% 🔋</p>
-            </div>
-          </div>
-
-          <div class="slide-card">
-            <div class="slide-img-wrap">
-              <img src="photos/foto11.jpg" alt="Foto 11" onerror="handleImgError(this)" />
-              <div class="slide-placeholder">📸</div>
-            </div>
-            <div class="slide-info">
-              <span class="slide-num">11 / 20</span>
-              <p class="slide-caption">ini juga foto pas libur semester 📅</p>
-              <p class="slide-quote">libur semester literally jadi hari paling ditunggu sedunia 😭</p>
-            </div>
-          </div>
-
-          <div class="slide-card">
-            <div class="slide-img-wrap">
-              <img src="photos/foto12.jpg" alt="Foto 12" onerror="handleImgError(this)" />
-              <div class="slide-placeholder">📸</div>
-            </div>
-            <div class="slide-info">
-              <span class="slide-num">12 / 20</span>
-              <p class="slide-caption">LDR, VC-an mulu 📱💬</p>
-              <p class="slide-quote">VC sampe ketiduran, klasik pasangan LDR banget 📵</p>
-            </div>
-          </div>
-
-          <div class="slide-card">
-            <div class="slide-img-wrap">
-              <img src="photos/foto13.jpg" alt="Foto 13" onerror="handleImgError(this)" />
-              <div class="slide-placeholder">📸</div>
-            </div>
-            <div class="slide-info">
-              <span class="slide-num">13 / 20</span>
-              <p class="slide-caption">ngide datengin ke Lampung 🚌✨</p>
-              <p class="slide-quote">nongol tiba-tiba tanpa bilang, respect banget sih 🫡</p>
-            </div>
-          </div>
-
-          <div class="slide-card">
-            <div class="slide-img-wrap">
-              <img src="photos/foto14.jpg" alt="Foto 14" onerror="handleImgError(this)" />
-              <div class="slide-placeholder">📸</div>
-            </div>
-            <div class="slide-info">
-              <span class="slide-num">14 / 20</span>
-              <p class="slide-caption">Bukit Aslan 🏔️🌿</p>
-              <p class="slide-quote">viewnya gila, tapi yang bikin lebih gila ya kamu ada di sana 🤭</p>
-            </div>
-          </div>
-
-          <div class="slide-card">
-            <div class="slide-img-wrap">
-              <img src="photos/foto15.jpg" alt="Foto 15" onerror="handleImgError(this)" />
-              <div class="slide-placeholder">📸</div>
-            </div>
-            <div class="slide-info">
-              <span class="slide-num">15 / 20</span>
-              <p class="slide-caption">makan sushi mengakhiri tahun 2025 🍣🎉</p>
-              <p class="slide-quote">tutup tahun dengan sushi, next year harus lebih gila lagi ya 😤🍣</p>
-            </div>
-          </div>
-
-          <div class="slide-card">
-            <div class="slide-img-wrap">
-              <img src="photos/foto16.jpg" alt="Foto 16" onerror="handleImgError(this)" />
-              <div class="slide-placeholder">📸</div>
-            </div>
-            <div class="slide-info">
-              <span class="slide-num">16 / 20</span>
-              <p class="slide-caption">masih dengan aku, kamu, dan Lampung 🌴💕</p>
-              <p class="slide-quote">Lampung unlocked, next destinasi mana nih? 🗺️</p>
-            </div>
-          </div>
-
-          <div class="slide-card">
-            <div class="slide-img-wrap">
-              <img src="photos/foto17.jpg" alt="Foto 17" onerror="handleImgError(this)" />
-              <div class="slide-placeholder">📸</div>
-            </div>
-            <div class="slide-info">
-              <span class="slide-num">17 / 20</span>
-              <p class="slide-caption">hunting makanan enak di Lampung yeuyy 🍜😋</p>
-              <p class="slide-quote">makan adalah love language terkuat, setuju? 🍜</p>
-            </div>
-          </div>
-
-          <div class="slide-card">
-            <div class="slide-img-wrap">
-              <img src="photos/foto18.jpg" alt="Foto 18" onerror="handleImgError(this)" />
-              <div class="slide-placeholder">📸</div>
-            </div>
-            <div class="slide-info">
-              <span class="slide-num">18 / 20</span>
-              <p class="slide-caption">mancing edition 🎣😄</p>
-              <p class="slide-quote">nunggu ikan sambil ngobrol ga jelas, best date actually 🎣</p>
-            </div>
-          </div>
-
-          <div class="slide-card">
-            <div class="slide-img-wrap">
-              <img src="photos/foto19.jpg" alt="Foto 19" onerror="handleImgError(this)" />
-              <div class="slide-placeholder">📸</div>
-            </div>
-            <div class="slide-info">
-              <span class="slide-num">19 / 20</span>
-              <p class="slide-caption">lucukk 🥰</p>
-              <p class="slide-quote">foto ini auto bikin senyum sendiri 🥹</p>
-            </div>
-          </div>
-
-          <div class="slide-card">
-            <div class="slide-img-wrap">
-              <img src="photos/foto20.jpg" alt="Foto 20" onerror="handleImgError(this)" />
-              <div class="slide-placeholder">📸</div>
-            </div>
-            <div class="slide-info">
-              <span class="slide-num">20 / 20</span>
-              <p class="slide-caption">tiba-tiba di Jakarta nih 🌆</p>
-              <p class="slide-quote">jakarta mode: on, bareng kamu beda vibe emang 🌆</p>
-            </div>
-          </div>
-
         </div>
       </div>
 
-      <button class="slide-btn next-btn" onclick="changeSlide(1)">›</button>
+      <div class="stack-card" data-index="1">
+        <div class="stack-card-inner">
+          <div class="stack-front">
+            <div class="stack-img-wrap">
+              <img src="photos/foto2.jpg" alt="" onerror="handleImgError(this)" />
+              <div class="stack-placeholder">📸</div>
+            </div>
+            <div class="stack-label">
+              <span class="stack-num">02</span>
+              <p class="stack-caption">sebelum jadian jadi bocil epep dulu 😂</p>
+              <p class="stack-en">the awkward era. cringe but we miss it ngl.</p>
+            </div>
+          </div>
+          <div class="stack-back">
+            <p class="stack-back-quote">"even the awkward phase had its charm — we just didn't know it yet."</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack-card" data-index="2">
+        <div class="stack-card-inner">
+          <div class="stack-front">
+            <div class="stack-img-wrap">
+              <img src="photos/foto3.jpg" alt="" onerror="handleImgError(this)" />
+              <div class="stack-placeholder">📸</div>
+            </div>
+            <div class="stack-label">
+              <span class="stack-num">03</span>
+              <p class="stack-caption">masuk SMA pas awal covid, canggung bgt kita oi 😅</p>
+              <p class="stack-en">pandemic era, somehow brought us closer.</p>
+            </div>
+          </div>
+          <div class="stack-back">
+            <p class="stack-back-quote">"the world was on pause, but feelings? they didn't stop."</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack-card" data-index="3">
+        <div class="stack-card-inner">
+          <div class="stack-front">
+            <div class="stack-img-wrap">
+              <img src="photos/foto4.jpg" alt="" onerror="handleImgError(this)" />
+              <div class="stack-placeholder">📸</div>
+            </div>
+            <div class="stack-label">
+              <span class="stack-num">04</span>
+              <p class="stack-caption">ngedate ala anak sekolahan 🏫💕</p>
+              <p class="stack-en">low budget, high quality memories.</p>
+            </div>
+          </div>
+          <div class="stack-back">
+            <p class="stack-back-quote">"simple dates hit different when you're with the right person."</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack-card" data-index="4">
+        <div class="stack-card-inner">
+          <div class="stack-front">
+            <div class="stack-img-wrap">
+              <img src="photos/foto5.jpg" alt="" onerror="handleImgError(this)" />
+              <div class="stack-placeholder">📸</div>
+            </div>
+            <div class="stack-label">
+              <span class="stack-num">05</span>
+              <p class="stack-caption">ppp mau kondangan? 😄👔</p>
+              <p class="stack-en">matching without planning — that's called soulmate behavior.</p>
+            </div>
+          </div>
+          <div class="stack-back">
+            <p class="stack-back-quote">"accidentally coordinated. definitely meant to be."</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack-card" data-index="5">
+        <div class="stack-card-inner">
+          <div class="stack-front">
+            <div class="stack-img-wrap">
+              <img src="photos/foto6.jpg" alt="" onerror="handleImgError(this)" />
+              <div class="stack-placeholder">📸</div>
+            </div>
+            <div class="stack-label">
+              <span class="stack-num">06</span>
+              <p class="stack-caption">banyak foto SMA yak, adanya pas pepisahan SMA doang 🎓</p>
+              <p class="stack-en">end of a chapter. but not ours.</p>
+            </div>
+          </div>
+          <div class="stack-back">
+            <p class="stack-back-quote">"graduation day — the school era is over, but we're still going."</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack-card" data-index="6">
+        <div class="stack-card-inner">
+          <div class="stack-front">
+            <div class="stack-img-wrap">
+              <img src="photos/foto7.jpg" alt="" onerror="handleImgError(this)" />
+              <div class="stack-placeholder">📸</div>
+            </div>
+            <div class="stack-label">
+              <span class="stack-num">07</span>
+              <p class="stack-caption">ke Gacoan pertama kali, aku UTBK dia udah lulus SNBP coy 🔥</p>
+              <p class="stack-en">celebrating milestones — even when it's not mine yet, lol.</p>
+            </div>
+          </div>
+          <div class="stack-back">
+            <p class="stack-back-quote">"your win felt like mine too. that's just how it works with us."</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack-card" data-index="7">
+        <div class="stack-card-inner">
+          <div class="stack-front">
+            <div class="stack-img-wrap">
+              <img src="photos/foto8.jpg" alt="" onerror="handleImgError(this)" />
+              <div class="stack-placeholder">📸</div>
+            </div>
+            <div class="stack-label">
+              <span class="stack-num">08</span>
+              <p class="stack-caption">rencanain satu kampus bareng malah LDR hikss 😭</p>
+              <p class="stack-en">plot twist we did not see coming.</p>
+            </div>
+          </div>
+          <div class="stack-back">
+            <p class="stack-back-quote">"different cities, same feeling. we figured it out anyway."</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack-card" data-index="8">
+        <div class="stack-card-inner">
+          <div class="stack-front">
+            <div class="stack-img-wrap">
+              <img src="photos/foto9.jpg" alt="" onerror="handleImgError(this)" />
+              <div class="stack-placeholder">📸</div>
+            </div>
+            <div class="stack-label">
+              <span class="stack-num">09</span>
+              <p class="stack-caption">LDR dimulai, mari kita mulai perang ini 💪</p>
+              <p class="stack-en">LDR szn: officially activated.</p>
+            </div>
+          </div>
+          <div class="stack-back">
+            <p class="stack-back-quote">"distance is just a test — and so far, we keep passing it."</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack-card" data-index="9">
+        <div class="stack-card-inner">
+          <div class="stack-front">
+            <div class="stack-img-wrap">
+              <img src="photos/foto10.jpg" alt="" onerror="handleImgError(this)" />
+              <div class="stack-placeholder">📸</div>
+            </div>
+            <div class="stack-label">
+              <span class="stack-num">10</span>
+              <p class="stack-caption">ketemunya libur semester aja, hiks 🗓️😢</p>
+              <p class="stack-en">semester break = the most anticipated day of the year.</p>
+            </div>
+          </div>
+          <div class="stack-back">
+            <p class="stack-back-quote">"every reunion felt like the first time all over again."</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack-card" data-index="10">
+        <div class="stack-card-inner">
+          <div class="stack-front">
+            <div class="stack-img-wrap">
+              <img src="photos/foto11.jpg" alt="" onerror="handleImgError(this)" />
+              <div class="stack-placeholder">📸</div>
+            </div>
+            <div class="stack-label">
+              <span class="stack-num">11</span>
+              <p class="stack-caption">ini juga foto pas libur semester 📅</p>
+              <p class="stack-en">making the most out of limited time together.</p>
+            </div>
+          </div>
+          <div class="stack-back">
+            <p class="stack-back-quote">"short on time, never short on memories."</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack-card" data-index="11">
+        <div class="stack-card-inner">
+          <div class="stack-front">
+            <div class="stack-img-wrap">
+              <img src="photos/foto12.jpg" alt="" onerror="handleImgError(this)" />
+              <div class="stack-placeholder">📸</div>
+            </div>
+            <div class="stack-label">
+              <span class="stack-num">12</span>
+              <p class="stack-caption">LDR, VC-an mulu 📱💬</p>
+              <p class="stack-en">phone screen as a window — that was our reality for a while.</p>
+            </div>
+          </div>
+          <div class="stack-back">
+            <p class="stack-back-quote">"fell asleep on VC more times than we can count. no regrets."</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack-card" data-index="12">
+        <div class="stack-card-inner">
+          <div class="stack-front">
+            <div class="stack-img-wrap">
+              <img src="photos/foto13.jpg" alt="" onerror="handleImgError(this)" />
+              <div class="stack-placeholder">📸</div>
+            </div>
+            <div class="stack-label">
+              <span class="stack-num">13</span>
+              <p class="stack-caption">ngide datengin ke Lampung 🚌✨</p>
+              <p class="stack-en">showed up unannounced — best decision ever made.</p>
+            </div>
+          </div>
+          <div class="stack-back">
+            <p class="stack-back-quote">"sometimes love shows up at the door before it sends a text."</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack-card" data-index="13">
+        <div class="stack-card-inner">
+          <div class="stack-front">
+            <div class="stack-img-wrap">
+              <img src="photos/foto14.jpg" alt="" onerror="handleImgError(this)" />
+              <div class="stack-placeholder">📸</div>
+            </div>
+            <div class="stack-label">
+              <span class="stack-num">14</span>
+              <p class="stack-caption">Bukit Aslan 🏔️🌿</p>
+              <p class="stack-en">good view. better company.</p>
+            </div>
+          </div>
+          <div class="stack-back">
+            <p class="stack-back-quote">"the view was stunning, but honestly — so were you."</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack-card" data-index="14">
+        <div class="stack-card-inner">
+          <div class="stack-front">
+            <div class="stack-img-wrap">
+              <img src="photos/foto15.jpg" alt="" onerror="handleImgError(this)" />
+              <div class="stack-placeholder">📸</div>
+            </div>
+            <div class="stack-label">
+              <span class="stack-num">15</span>
+              <p class="stack-caption">makan sushi mengakhiri tahun 2025 🍣🎉</p>
+              <p class="stack-en">closing the year right — with good food and you.</p>
+            </div>
+          </div>
+          <div class="stack-back">
+            <p class="stack-back-quote">"2025 ending with sushi and you. can't complain."</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack-card" data-index="15">
+        <div class="stack-card-inner">
+          <div class="stack-front">
+            <div class="stack-img-wrap">
+              <img src="photos/foto16.jpg" alt="" onerror="handleImgError(this)" />
+              <div class="stack-placeholder">📸</div>
+            </div>
+            <div class="stack-label">
+              <span class="stack-num">16</span>
+              <p class="stack-caption">masih dengan aku, kamu, dan Lampung 🌴💕</p>
+              <p class="stack-en">still here. still us.</p>
+            </div>
+          </div>
+          <div class="stack-back">
+            <p class="stack-back-quote">"different place, same feeling. it never really changes."</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack-card" data-index="16">
+        <div class="stack-card-inner">
+          <div class="stack-front">
+            <div class="stack-img-wrap">
+              <img src="photos/foto17.jpg" alt="" onerror="handleImgError(this)" />
+              <div class="stack-placeholder">📸</div>
+            </div>
+            <div class="stack-label">
+              <span class="stack-num">17</span>
+              <p class="stack-caption">hunting makanan enak di Lampung yeuyy 🍜😋</p>
+              <p class="stack-en">food tour activated. no skips.</p>
+            </div>
+          </div>
+          <div class="stack-back">
+            <p class="stack-back-quote">"our love language: finding the best local food together."</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack-card" data-index="17">
+        <div class="stack-card-inner">
+          <div class="stack-front">
+            <div class="stack-img-wrap">
+              <img src="photos/foto18.jpg" alt="" onerror="handleImgError(this)" />
+              <div class="stack-placeholder">📸</div>
+            </div>
+            <div class="stack-label">
+              <span class="stack-num">18</span>
+              <p class="stack-caption">mancing edition 🎣😄</p>
+              <p class="stack-en">waiting for fish, but mostly just talking nonsense.</p>
+            </div>
+          </div>
+          <div class="stack-back">
+            <p class="stack-back-quote">"best conversations happen when there's nowhere to be."</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack-card" data-index="18">
+        <div class="stack-card-inner">
+          <div class="stack-front">
+            <div class="stack-img-wrap">
+              <img src="photos/foto19.jpg" alt="" onerror="handleImgError(this)" />
+              <div class="stack-placeholder">📸</div>
+            </div>
+            <div class="stack-label">
+              <span class="stack-num">19</span>
+              <p class="stack-caption">lucukk 🥰</p>
+              <p class="stack-en">no context needed. just happy.</p>
+            </div>
+          </div>
+          <div class="stack-back">
+            <p class="stack-back-quote">"this photo lives rent-free in my head."</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack-card" data-index="19">
+        <div class="stack-card-inner">
+          <div class="stack-front">
+            <div class="stack-img-wrap">
+              <img src="photos/foto20.jpg" alt="" onerror="handleImgError(this)" />
+              <div class="stack-placeholder">📸</div>
+            </div>
+            <div class="stack-label">
+              <span class="stack-num">20</span>
+              <p class="stack-caption">tiba-tiba di Jakarta nih 🌆</p>
+              <p class="stack-en">healing era. different city, same us.</p>
+            </div>
+          </div>
+          <div class="stack-back">
+            <p class="stack-back-quote">"any city feels right when you're next to me."</p>
+          </div>
+        </div>
+      </div>
+
     </div>
 
-    <!-- Dots -->
-    <div class="slide-dots" id="slideDots"></div>
-
-    <!-- Thumbnail strip -->
-    <div class="thumb-strip" id="thumbStrip"></div>
+    <!-- Navigation -->
+    <div class="stack-nav">
+      <button class="stack-nav-btn" id="btnPrev" onclick="stackPrev()">← prev</button>
+      <span class="stack-counter" id="stackCounter">1 / 20</span>
+      <button class="stack-nav-btn" id="btnNext" onclick="stackNext()">next →</button>
+    </div>
+    <p class="stack-hint">tap kartu untuk flip ✦ drag untuk skip 👆</p>
   </section>
 
-  <!-- 🎮 MINI GAME -->
+  <!-- GAME -->
   <section class="game-section" id="game">
     <div class="section-header">
       <h2>gasken game dulu 🎮</h2>
       <p>seberapa tau sih kamu tentang kita?</p>
     </div>
 
-    <!-- Tab switch -->
     <div class="game-tabs">
-      <button class="game-tab active" onclick="switchGame('quiz')">❓ Kuis</button>
-      <button class="game-tab" onclick="switchGame('flip')">🃏 Flip Card</button>
+      <button class="game-tab active" onclick="switchGame('quiz')">❓ kuis</button>
+      <button class="game-tab" onclick="switchGame('flip')">🃏 flip card</button>
     </div>
 
-    <!-- QUIZ -->
     <div class="game-panel" id="panelQuiz">
       <div class="game-card">
         <div class="game-progress-bar"><div class="game-progress-fill" id="progressFill"></div></div>
-        <p class="game-q-num" id="qNum">Pertanyaan 1 / 5</p>
+        <p class="game-q-num" id="qNum">soal 1 / 5</p>
         <p class="game-question" id="gameQuestion">Loading...</p>
         <div class="game-options" id="gameOptions"></div>
         <div class="game-feedback" id="gameFeedback"></div>
-        <button class="btn-next-q" id="btnNextQ" style="display:none" onclick="nextQuestion()">Pertanyaan Berikutnya →</button>
+        <button class="btn-next-q" id="btnNextQ" style="display:none" onclick="nextQuestion()">next →</button>
         <div class="game-result" id="gameResult" style="display:none"></div>
       </div>
     </div>
 
-    <!-- FLIP CARD GAME -->
     <div class="game-panel" id="panelFlip" style="display:none">
       <div class="flip-intro" id="flipIntro">
         <div class="game-card" style="text-align:center">
@@ -349,8 +480,8 @@
       </div>
       <div id="flipGame" style="display:none">
         <div class="flip-stats">
-          <span>Percobaan: <strong id="flipMoves">0</strong></span>
-          <span>Pasangan: <strong id="flipMatched">0</strong> / <strong id="flipTotal">0</strong></span>
+          <span>tries: <strong id="flipMoves">0</strong></span>
+          <span>matched: <strong id="flipMatched">0</strong> / <strong id="flipTotal">0</strong></span>
           <span id="flipTimer">⏱ 0s</span>
         </div>
         <div class="flip-grid" id="flipGrid"></div>
@@ -367,20 +498,20 @@
     </div>
   </section>
 
-  <!-- 💌 LOVE LETTER -->
+  <!-- LETTER -->
   <section class="letter-section">
     <div class="letter-card">
-      <div class="letter-header">📝 katanya sih mau nulis sesuatu</div>
+      <div class="letter-header">📝 a little note</div>
       <div class="letter-body">
-        <p>buat bubub,</p>
+        <p>dear bub,</p>
         <br/>
-        <p>jujur gak nyangka dari temen sd bisa jadi gini. dulu main bareng aja, sekarang malah masih ada aja. somehow.</p>
+        <p>honestly, i didn't think a childhood friendship could turn into something this real. tapi nyatanya bisa, dan kita udah ngebuktiin itu.</p>
         <br/>
-        <p>LDR-nya berat tapi kita masih di sini kan. tiap VC tengah malem, tiap ketemuan pas libur semester, tiap surprise receh yang kita bikin, semuanya tetep jadi momen yang gak gampang dilupain.</p>
+        <p>LDR wasn't easy — beda kota, beda kampus, ketemunya nunggu libur semester. tiap VC tengah malem, tiap surprise yang gak pernah bener-bener disiapain, somehow it all worked out.</p>
         <br/>
-        <p>makasih udah tetap ada. makasih udah sabar sama aku yang kadang nyebelin. dan makasih udah jadi orang yang bikin aku ngerasa oke oke aja.</p>
+        <p>thank you for staying. makasih udah sabar sama aku yang kadang nyebelin. and thank you for being the kind of person who makes ordinary days feel like something worth remembering.</p>
         <br/>
-        <p class="letter-sign">dari monic 🌸</p>
+        <p class="letter-sign">from monic, always 🌸</p>
       </div>
     </div>
   </section>
@@ -388,7 +519,7 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-heart">💕</div>
-    <p>monic & ki</p>
+    <p>cibinong & cibubub</p>
     <p class="footer-sub">dari sd sampe belom tau kapan, we'll see 🫠</p>
     <p class="footer-tiny">made with receh energy 🌸</p>
   </footer>
@@ -403,10 +534,6 @@
       </div>
       <p id="modalCaption" class="modal-caption"></p>
       <p id="modalQuote" class="modal-quote"></p>
-      <div class="modal-nav">
-        <button onclick="modalPrev()">← Sebelumnya</button>
-        <button onclick="modalNext()">Selanjutnya →</button>
-      </div>
     </div>
   </div>
 
