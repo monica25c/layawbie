@@ -97,7 +97,7 @@ body { font-family: 'Poppins', sans-serif; background: var(--cream); color: var(
 }
 
 .slide-img-wrap {
-  position: relative; width: 100%; aspect-ratio: 16/9;
+  position: relative; width: 100%; aspect-ratio: 1/1;
   background: linear-gradient(135deg, var(--blush), var(--lavender)); overflow: hidden;
   cursor: pointer;
 }
@@ -137,6 +137,16 @@ body { font-family: 'Poppins', sans-serif; background: var(--cream); color: var(
 .thumb.active { border-color: var(--pink-dark); transform: scale(1.08); }
 .thumb-num { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; color: var(--text-mid); font-weight: 600; }
 
+/* ===== GAME TABS ===== */
+.game-tabs { display: flex; justify-content: center; gap: 0.8rem; margin-bottom: 1.8rem; }
+.game-tab {
+  padding: 0.65rem 1.8rem; border-radius: 50px; border: 2px solid var(--pink);
+  background: transparent; cursor: pointer; font-size: 0.9rem; font-family: 'Poppins', sans-serif;
+  color: var(--text-dark); transition: all 0.2s;
+}
+.game-tab.active { background: linear-gradient(135deg, var(--pink-dark), #c97fa0); color: white; border-color: transparent; }
+.game-tab:hover:not(.active) { background: var(--pink); }
+
 /* ===== GAME ===== */
 .game-section { padding: 4rem 2rem 5rem; background: linear-gradient(160deg, var(--lavender) 0%, var(--blush) 100%); }
 .game-card {
@@ -175,6 +185,58 @@ body { font-family: 'Poppins', sans-serif; background: var(--cream); color: var(
   font-size: 0.9rem; font-family: 'Poppins', sans-serif;
 }
 
+/* ===== FLIP CARD GAME ===== */
+.flip-stats {
+  display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;
+  margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--text-mid);
+}
+.flip-stats strong { color: var(--text-dark); }
+
+.flip-grid {
+  display: grid;
+  gap: 0.8rem;
+  max-width: 520px;
+  margin: 0 auto 1.5rem;
+}
+.flip-grid.grid-6  { grid-template-columns: repeat(3, 1fr); }
+.flip-grid.grid-12 { grid-template-columns: repeat(4, 1fr); }
+
+.flip-card {
+  aspect-ratio: 1/1;
+  perspective: 800px;
+  cursor: pointer;
+}
+.flip-card-inner {
+  position: relative; width: 100%; height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.45s cubic-bezier(0.4,0,0.2,1);
+}
+.flip-card.flipped .flip-card-inner,
+.flip-card.matched .flip-card-inner { transform: rotateY(180deg); }
+
+.flip-front, .flip-back {
+  position: absolute; inset: 0; border-radius: 16px;
+  backface-visibility: hidden; display: flex; align-items: center; justify-content: center;
+}
+.flip-front {
+  background: linear-gradient(135deg, var(--pink), var(--lavender));
+  font-size: 1.8rem; box-shadow: 0 4px 16px var(--shadow);
+  transition: transform 0.15s;
+}
+.flip-card:hover:not(.matched) .flip-front { transform: scale(1.04); }
+.flip-back {
+  background: var(--white); transform: rotateY(180deg);
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
+  box-shadow: 0 4px 16px var(--shadow); border: 2px solid var(--pink);
+}
+.flip-card.matched .flip-front { background: linear-gradient(135deg, #d5f0e8, #a8dfc4); }
+.flip-card.matched .flip-back  { border-color: #6dbf98; background: #f0faf5; }
+
+.flip-result {
+  text-align: center; padding: 2rem 1rem;
+  animation: popIn 0.4s ease;
+}
+
 /* ===== LETTER ===== */
 .letter-section { padding: 4rem 2rem 5rem; background: linear-gradient(160deg, #fde8ee, #f7c5d0 60%, #e8d5f5); display: flex; justify-content: center; }
 .letter-card { background: rgba(255,255,255,0.88); backdrop-filter: blur(8px); border-radius: 24px; max-width: 640px; width: 100%; box-shadow: 0 8px 40px var(--shadow); overflow: hidden; }
@@ -196,7 +258,7 @@ body { font-family: 'Poppins', sans-serif; background: var(--cream); color: var(
 @keyframes popIn { from { transform: scale(0.85); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 .modal-close { position: absolute; top: 0.9rem; right: 1rem; background: var(--pink); border: none; border-radius: 50%; width: 34px; height: 34px; font-size: 1rem; cursor: pointer; color: var(--text-dark); z-index: 10; transition: background 0.2s; }
 .modal-close:hover { background: var(--pink-dark); color: white; }
-.modal-img-wrap { position: relative; width: 100%; aspect-ratio: 16/9; background: linear-gradient(135deg, var(--blush), var(--lavender)); overflow: hidden; }
+.modal-img-wrap { position: relative; width: 100%; aspect-ratio: 1/1; background: linear-gradient(135deg, var(--blush), var(--lavender)); overflow: hidden; }
 .modal-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .modal-placeholder { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; font-size: 3rem; }
 .modal-caption { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1rem; color: var(--text-dark); padding: 1.2rem 2rem 0.3rem; text-align: center; }

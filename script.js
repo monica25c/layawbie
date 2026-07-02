@@ -176,34 +176,34 @@ function modalPrev() { modalIndex = (modalIndex - 1 + total) % total; renderModa
 // ───────── MINI GAME ─────────
 const questions = [
   {
-    q: '💌 Gimana awal cerita Monica & Rizki?',
-    opts: ['Ketemu di mall', 'Teman SD cinta monyet', 'Kenalan online', 'Dikenalkan teman'],
+    q: '👀 gimana awal cerita mon sama ki?',
+    opts: ['ketemu di mall', 'temen SD cinta monyet', 'kenalan online', 'dikenalain temen'],
     ans: 1,
-    feedback: { right: '✅ Betul banget! Dari teman SD sampai selamanya 🥺', wrong: '❌ Salah nih~ mereka itu teman SD cinta monyet lho!' }
+    feedback: { right: '✅ bener! dari SD emang udah ada chemistry-nya 🥺', wrong: '❌ salah, mereka temen SD yang kena cinta monyet lho!' }
   },
   {
-    q: '🎓 Apa yang terjadi pas mereka masuk kuliah?',
-    opts: ['Satu kampus', 'LDR beda kota', 'Putus dulu', 'Nikah muda'],
+    q: '😭 pas masuk kuliah, apa yang terjadi?',
+    opts: ['satu kampus', 'LDR beda kota', 'putus dulu', 'nikah duluan'],
     ans: 1,
-    feedback: { right: '✅ Yap! Rencananya mau satu kampus tapi malah LDR 😭', wrong: '❌ Hmm, coba tebak lagi — LDR beda kota lho!' }
+    feedback: { right: '✅ yep, niat satu kampus malah LDR 😭', wrong: '❌ bukan, LDR beda kota dong, dramatis abis!' }
   },
   {
-    q: '📅 Kapan Monica & Rizki resmi jadian?',
-    opts: ['1 Januari 2019', '30 Juli 2020', '17 Agustus 2020', '14 Februari 2021'],
-    ans: 1,
-    feedback: { right: '✅ Betul! 30 Juli 2020 — tanggal yang selalu diingat 💕', wrong: '❌ Salah nih~ tanggal jadian mereka itu 30 Juli 2020 lho!' }
+    q: '🍜 abis Rizki surprise dateng, ngapain dulu?',
+    opts: ['nonton bioskop', 'mancing', 'hunting makan enak', 'foto-foto dulu'],
+    ans: 2,
+    feedback: { right: '✅ yep, makan dulu yang penting 🍜', wrong: '❌ hunting makan enak lah, prioritas!' }
   },
   {
-    q: '🍣 Momen spesial apa yang mereka rayakan di akhir 2025?',
-    opts: ['Makan sushi bareng', 'Naik gunung', 'Anniversary mewah', 'Konser bareng'],
+    q: '🍣 mereka lakuin apa buat nutup tahun 2025?',
+    opts: ['makan sushi bareng', 'naik gunung', 'anniversary fancy', 'konser'],
     ans: 0,
-    feedback: { right: '✅ Makan sushi mengakhiri tahun 2025, sweet banget! 🎉', wrong: '❌ Salah~ mereka makan sushi cantik buat nutup tahun 2025!' }
+    feedback: { right: '✅ sushi untuk nutup 2025, chill banget 🎉', wrong: '❌ makan sushi dong buat nutup tahun 2025!' }
   },
   {
-    q: '🔥 Di mana Monica & Rizki pertama kali makan bareng setelah lulus SMA?',
-    opts: ['KFC', 'Gacoan', 'McD', 'Warteg favorit'],
+    q: '🔥 pertama kali makan bareng setelah lulus SMA, dimana?',
+    opts: ['KFC', 'Gacoan', 'McD', 'warteg'],
     ans: 1,
-    feedback: { right: '✅ Gacoan! Ceritanya seru banget, dia udah lulus SNBP duluan 🔥', wrong: '❌ Bukan itu~ Gacoan dong! Sambil rayain kelulusan SNBP!' }
+    feedback: { right: '✅ Gacoan! sambil rayain dia lulus SNBP duluan 🔥', wrong: '❌ Gacoan dong! sambil baper dia lulus duluan 😭' }
   }
 ];
 
@@ -219,7 +219,7 @@ function initGame() {
 function renderQuestion() {
   const q = questions[qIndex];
   answered = false;
-  document.getElementById('qNum').textContent = `Pertanyaan ${qIndex + 1} / ${questions.length}`;
+  document.getElementById('qNum').textContent = `soal ${qIndex + 1} / ${questions.length}`;
   document.getElementById('gameQuestion').textContent = q.q;
   document.getElementById('gameFeedback').textContent = '';
   document.getElementById('btnNextQ').style.display = 'none';
@@ -272,7 +272,7 @@ function showResult() {
   document.getElementById('gameOptions').innerHTML = '';
   document.getElementById('gameFeedback').textContent = '';
   document.getElementById('btnNextQ').style.display = 'none';
-  document.getElementById('qNum').textContent = 'Selesai! 🎉';
+  document.getElementById('qNum').textContent = 'selesai! 🎉';
   document.getElementById('gameQuestion').textContent = '';
 
   const resultEl = document.getElementById('gameResult');
@@ -280,20 +280,149 @@ function showResult() {
 
   let emoji, title, msg;
   if (score === 5) {
-    emoji = '🌸'; title = 'Sempurna!';
-    msg = `Nilai ${score}/5 — Kamu beneran tau cerita Monica & Rizki luar dalam! Kalian udah nulis cerita yang indah banget 💕`;
+    emoji = '🌸'; title = 'tau banget sih!';
+    msg = `${score}/5 bener semua, literally hapal cerita kita luar dalem 💕`;
   } else if (score >= 3) {
-    emoji = '💕'; title = 'Keren Banget!';
-    msg = `Nilai ${score}/5 — Lumayan tau cerita kalian! Tapi masih ada yang perlu dijelajahi lagi nih 😊`;
+    emoji = '💕'; title = 'lumayan tau!';
+    msg = `${score}/5, masih ada yang kelewat nih, baca lagi dari atas 😄`;
   } else {
-    emoji = '😄'; title = 'Yuk Belajar Lagi!';
-    msg = `Nilai ${score}/5 — Hehe, kurang kenal nih! Baca lagi cerita Monica & Rizki dari atas ya 🌸`;
+    emoji = '😭'; title = 'kamu siapa?';
+    msg = `${score}/5 doang, ini orang lain apa gimana 💀 scroll lagi dari atas dong!`;
   }
 
   resultEl.innerHTML = `
     <span class="result-emoji">${emoji}</span>
     <div class="result-title">${title}</div>
     <div class="result-msg">${msg}</div>
-    <button class="btn-restart" onclick="initGame()">Main Lagi 🔄</button>
+    <button class="btn-restart" onclick="initGame()">main lagi 🔄</button>
   `;
+}
+
+// ───────── GAME TABS ─────────
+function switchGame(tab) {
+  document.querySelectorAll('.game-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.game-panel').forEach(p => p.style.display = 'none');
+  if (tab === 'quiz') {
+    document.querySelectorAll('.game-tab')[0].classList.add('active');
+    document.getElementById('panelQuiz').style.display = 'block';
+  } else {
+    document.querySelectorAll('.game-tab')[1].classList.add('active');
+    document.getElementById('panelFlip').style.display = 'block';
+  }
+}
+
+// ───────── FLIP CARD GAME ─────────
+// Emoji pairs seputar cerita Monica & Rizki
+const flipEmojis = [
+  '🌸','💕','🎓','📱','✈️','🍣',
+  '🏔️','🎣','🌴','🍜','🥺','💌'
+];
+
+let flipState = {
+  flipped: [], matched: 0, moves: 0,
+  lock: false, timer: null, seconds: 0, total: 0
+};
+let currentFlipSize = 6;
+
+function showFlipIntro() {
+  document.getElementById('flipIntro').style.display = 'block';
+  document.getElementById('flipGame').style.display = 'none';
+  clearInterval(flipState.timer);
+}
+
+function startFlip(pairs) {
+  currentFlipSize = pairs;
+  clearInterval(flipState.timer);
+
+  // pick emojis
+  const pool = flipEmojis.slice(0, pairs);
+  const cards = [...pool, ...pool].sort(() => Math.random() - 0.5);
+
+  flipState = { flipped: [], matched: 0, moves: 0, lock: false, timer: null, seconds: 0, total: pairs };
+
+  document.getElementById('flipIntro').style.display = 'none';
+  document.getElementById('flipGame').style.display = 'block';
+  document.getElementById('flipResult').style.display = 'none';
+  document.getElementById('flipMoves').textContent = '0';
+  document.getElementById('flipMatched').textContent = '0';
+  document.getElementById('flipTotal').textContent = pairs;
+  document.getElementById('flipTimer').textContent = '⏱ 0s';
+
+  const grid = document.getElementById('flipGrid');
+  grid.innerHTML = '';
+  grid.className = `flip-grid grid-${pairs}`;
+
+  cards.forEach((emoji, i) => {
+    const card = document.createElement('div');
+    card.className = 'flip-card';
+    card.dataset.emoji = emoji;
+    card.dataset.index = i;
+    card.innerHTML = `
+      <div class="flip-card-inner">
+        <div class="flip-front">🌸</div>
+        <div class="flip-back">${emoji}</div>
+      </div>`;
+    card.addEventListener('click', () => onFlipClick(card));
+    grid.appendChild(card);
+  });
+
+  // start timer
+  flipState.timer = setInterval(() => {
+    flipState.seconds++;
+    document.getElementById('flipTimer').textContent = `⏱ ${flipState.seconds}s`;
+  }, 1000);
+}
+
+function onFlipClick(card) {
+  if (flipState.lock) return;
+  if (card.classList.contains('flipped') || card.classList.contains('matched')) return;
+
+  card.classList.add('flipped');
+  flipState.flipped.push(card);
+
+  if (flipState.flipped.length === 2) {
+    flipState.lock = true;
+    flipState.moves++;
+    document.getElementById('flipMoves').textContent = flipState.moves;
+
+    const [a, b] = flipState.flipped;
+    if (a.dataset.emoji === b.dataset.emoji) {
+      // match!
+      setTimeout(() => {
+        a.classList.add('matched');
+        b.classList.add('matched');
+        flipState.matched++;
+        document.getElementById('flipMatched').textContent = flipState.matched;
+        flipState.flipped = [];
+        flipState.lock = false;
+        if (flipState.matched === flipState.total) endFlip();
+      }, 400);
+    } else {
+      // no match
+      setTimeout(() => {
+        a.classList.remove('flipped');
+        b.classList.remove('flipped');
+        flipState.flipped = [];
+        flipState.lock = false;
+      }, 900);
+    }
+  }
+}
+
+function endFlip() {
+  clearInterval(flipState.timer);
+  const result = document.getElementById('flipResult');
+  const { moves, seconds, total } = flipState;
+  let msg = '';
+  const perfect = total; // minimum possible moves
+  if (moves <= perfect + 2) {
+    msg = `${moves} percobaan, ${seconds} detik. ingatan kamu kuat banget frfr 🌸`;
+  } else if (moves <= perfect + 6) {
+    msg = `${moves} percobaan, ${seconds} detik. lumayan, tapi masih bisa lebih cepet 😄`;
+  } else {
+    msg = `${moves} percobaan, ${seconds} detik. santuy, yang penting kelar kayak LDR kita 💀`;
+  }
+  document.getElementById('flipResultMsg').textContent = msg;
+  result.style.display = 'block';
+  result.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
