@@ -441,3 +441,172 @@ document.addEventListener('DOMContentLoaded', () => {
   initStack();
   initGame();
 });
+
+// ───────── PUZZLE GAME ─────────
+const PUZZLE_IMG = 'puzzle.jpg';
+let currentPuzzleSize = 3;
+let puzzleState = {
+  grid: [], size: 3, moves: 0,
+  timer: null, seconds: 0, dragging: null
+};
+
+function showPuzzleIntro() {
+  document.getElementById('puzzleIntro').style.display = 'block';
+  document.getElementById('puzzleGame').style.display = 'none';
+  document.getElementById('puzzleResult').style.display = 'none';
+  clearInterval(puzzleState.timer);
+}
+
+function startPuzzle(size) {
+  currentPuzzleSize = size;
+  clearInterval(puzzleState.timer);
+  puzzleState = { grid: [], size, moves: 0, timer: null, seconds: 0, dragging: null };
+
+  document.getElementById('puzzleIntro').style.display = 'none';
+  document.getElementById('puzzleGame').style.display = 'block';
+  document.getElementById('puzzleResult').style.display = 'none';
+  document.getElementById('puzzleMoves').textContent = '0';
+  document.getElementById('puzzleTimer').textContent = '⏱ 0s';
+
+  // build solved order
+  const total = size * size;
+  puzzleState.grid = Array.from({ length: total }, (_, i) => i);
+
+  renderPuzzle();
+  shufflePuzzle();
+
+  puzzleState.timer = setInterval(() => {
+    puzzleState.seconds++;
+    document.getElementById('puzzleTimer').textContent = `⏱ ${puzzleState.seconds}s`;
+  }, 1000);
+}
+
+function shufflePuzzle() {
+  const { grid } = puzzleState;
+  // Fisher-Yates
+  for (let i = grid.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [grid[i], grid[j]] = [grid[j], grid[i]];
+  }
+  puzzleState.moves = 0;
+  document.getElementById('puzzleMoves').textContent = '0';
+  renderPuzzle();
+}
+
+function renderPuzzle() {
+  const { grid, size } = puzzleState;
+  const board = document.getElementById('puzzleBoard');
+  board.innerHTML = '';
+
+  // board size responsive
+  const maxW = Math.min(window.innerWidth - 160, 360);
+  const pieceSize = Math.floor(maxW / size);
+  board.style.gridTemplateColumns = `repeat(${size}, ${pieceSize}px)`;
+  board.style.width = `${pieceSize * size + (size - 1) * 3}px`;
+
+  grid.forEach((tileIndex, pos) => {
+    const piece = document.createElement('div');
+    piece.className = 'puzzle-piece';
+    piece.style.width = pieceSize + 'px';
+    piece.style.height = pieceSize + 'px';
+    piece.dataset.pos = pos;
+    piece.dataset.tile = tileIndex;
+
+    const row = Math.floor(tileIndex / size);
+    const col = tileIndex % size;
+    const bgX = -(col * pieceSize);
+    const bgY = -(row * pieceSize);
+    piece.style.backgroundImage = `url('${PUZZLE_IMG}')`;
+    piece.style.backgroundSize = `${pieceSize * size}px ${pieceSize * size}px`;
+    piece.style.backgroundPosition = `${bgX}px ${bgY}px`;
+
+    // mark correct pieces
+    if (tileIndex === pos) piece.classList.add('correct');
+
+    // drag events (mouse + touch)
+    piece.addEventListener('dragstart', onPuzzleDragStart);
+    piece.addEventListener('dragover', e => e.preventDefault());
+    piece.addEventListener('drop', onPuzzleDrop);
+    piece.setAttribute('draggable', true);
+
+    // touch
+    piece.addEventListener('touchstart', onPuzzleTouchStart, { passive: true });
+    piece.addEventListener('touchend', onPuzzleTouchEnd);
+
+    board.appendChild(piece);
+  });
+}
+
+// --- Drag & Drop ---
+function onPuzzleDragStart(e) {
+  puzzleState.dragging = parseInt(e.target.dataset.pos);
+  e.target.classList.add('dragging');
+  e.dataTransfer.effectAllowed = 'move';
+}
+
+function onPuzzleDrop(e) {
+  e.preventDefault();
+  const targetPos = parseInt(e.currentTarget.dataset.pos);
+  const fromPos = puzzleState.dragging;
+  if (fromPos === null || fromPos === targetPos) return;
+
+  // swap
+  const { grid } = puzzleState;
+  [grid[fromPos], grid[targetPos]] = [grid[targetPos], grid[fromPos]];
+  puzzleState.moves++;
+  document.getElementById('puzzleMoves').textContent = puzzleState.moves;
+  puzzleState.dragging = null;
+  renderPuzzle();
+  checkPuzzleSolved();
+}
+
+// --- Touch swap (tap two pieces) ---
+let touchFirst = null;
+function onPuzzleTouchStart(e) {
+  const pos = parseInt(e.currentTarget.dataset.pos);
+  if (touchFirst === null) {
+    touchFirst = pos;
+    e.currentTarget.style.outline = '3px solid var(--pink-dark)';
+  } else {
+    const { grid } = puzzleState;
+    // clear outline
+    document.querySelectorAll('.puzzle-piece').forEach(p => p.style.outline = '');
+    [grid[touchFirst], grid[pos]] = [grid[pos], grid[touchFirst]];
+    puzzleState.moves++;
+    document.getElementById('puzzleMoves').textContent = puzzleState.moves;
+    touchFirst = null;
+    renderPuzzle();
+    checkPuzzleSolved();
+  }
+}
+function onPuzzleTouchEnd(e) { e.preventDefault(); }
+
+function checkPuzzleSolved() {
+  const { grid } = puzzleState;
+  const solved = grid.every((tile, i) => tile === i);
+  if (!solved) return;
+
+  clearInterval(puzzleState.timer);
+  const { moves, seconds } = puzzleState;
+  let msg = '';
+  if (moves <= puzzleState.size * 3) msg = `${moves} moves, ${seconds}s. gila cepet banget, udah kayak hapal posisi satu sama lain 🌸`;
+  else if (moves <= puzzleState.size * 7) msg = `${moves} moves, ${seconds}s. nice! foto kelar tersusun rapi kayak hubungan kalian 💕`;
+  else msg = `${moves} moves, ${seconds}s. santuy, yang penting kelar dan fotonya bagus kan 😄`;
+
+  setTimeout(() => {
+    document.getElementById('puzzleResultMsg').textContent = msg;
+    document.getElementById('puzzleResult').style.display = 'block';
+    document.getElementById('puzzleResult').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 300);
+}
+
+// update switchGame to include puzzle
+const _origSwitchGame = switchGame;
+switchGame = function(tab) {
+  document.querySelectorAll('.game-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.game-panel').forEach(p => p.style.display = 'none');
+  const tabs = document.querySelectorAll('.game-tab');
+  if (tab === 'quiz')   { tabs[0].classList.add('active'); document.getElementById('panelQuiz').style.display = 'block'; }
+  else if (tab === 'flip')   { tabs[1].classList.add('active'); document.getElementById('panelFlip').style.display = 'block'; }
+  else if (tab === 'puzzle') { tabs[2].classList.add('active'); document.getElementById('panelPuzzle').style.display = 'block'; }
+};

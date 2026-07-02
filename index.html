@@ -452,6 +452,7 @@
     <div class="game-tabs">
       <button class="game-tab active" onclick="switchGame('quiz')">❓ kuis</button>
       <button class="game-tab" onclick="switchGame('flip')">🃏 flip card</button>
+      <button class="game-tab" onclick="switchGame('puzzle')">🧩 puzzle</button>
     </div>
 
     <div class="game-panel" id="panelQuiz">
@@ -492,6 +493,44 @@
           <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1rem">
             <button class="btn-restart" onclick="startFlip(currentFlipSize)">main lagi 🔄</button>
             <button class="btn-restart" style="background:var(--blush)" onclick="showFlipIntro()">ganti level</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PUZZLE GAME -->
+    <div class="game-panel" id="panelPuzzle" style="display:none">
+      <div class="puzzle-intro" id="puzzleIntro">
+        <div class="game-card" style="text-align:center">
+          <p style="font-size:2.5rem;margin-bottom:1rem">🧩</p>
+          <p class="game-question">susun foto ini jadi bener! 😄</p>
+          <p style="font-size:0.85rem;color:var(--text-light);margin-bottom:1.5rem">drag potongan puzzle ke posisi yang tepat. semakin sedikit moves, semakin bagus!</p>
+          <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+            <button class="btn-next-q" style="display:inline-block" onclick="startPuzzle(3)">easy (3×3)</button>
+            <button class="btn-next-q" style="display:inline-block;background:linear-gradient(135deg,#c9a0e0,#9b6dbe);color:white" onclick="startPuzzle(4)">hard (4×4)</button>
+          </div>
+        </div>
+      </div>
+      <div id="puzzleGame" style="display:none">
+        <div class="flip-stats">
+          <span>moves: <strong id="puzzleMoves">0</strong></span>
+          <span id="puzzleTimer">⏱ 0s</span>
+          <button class="stack-nav-btn" onclick="shufflePuzzle()">shuffle 🔀</button>
+        </div>
+        <div class="puzzle-wrap">
+          <div class="puzzle-board" id="puzzleBoard"></div>
+          <div class="puzzle-preview" id="puzzlePreview">
+            <p style="font-size:0.7rem;color:var(--text-light);margin-bottom:0.4rem">preview</p>
+            <img src="puzzle.jpg" alt="preview" onerror="this.parentElement.style.display='none'" />
+          </div>
+        </div>
+        <div class="puzzle-result" id="puzzleResult" style="display:none">
+          <span class="result-emoji">🎉</span>
+          <div class="result-title">kelar!</div>
+          <div class="result-msg" id="puzzleResultMsg"></div>
+          <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1rem">
+            <button class="btn-restart" onclick="startPuzzle(currentPuzzleSize)">main lagi 🔄</button>
+            <button class="btn-restart" style="background:var(--blush)" onclick="showPuzzleIntro()">ganti level</button>
           </div>
         </div>
       </div>
