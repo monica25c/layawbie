@@ -5,25 +5,25 @@
 // ───────── PHOTOS DATA ─────────
 const photos = [
   { src: 'photos/foto1.jpg',  caption: 'teman SD cinta monyet 🥺',                                      quote: '"who knew a childhood friend could turn into something like this."' },
-  { src: 'photos/foto2.jpg',  caption: 'sebelum jadian jadi bocil epep dulu 😂',                        quote: '"even the awkward phase had its charm — we just didn\'t know it yet."' },
+  { src: 'photos/foto2.jpg',  caption: 'sebelum jadian jadi bocil epep dulu 😂',                        quote: '"even the awkward phase had its charm, we just didn\'t know it yet."' },
   { src: 'photos/foto3.jpg',  caption: 'masuk SMA pas awal covid, canggung bgt kita oi 😅',             quote: '"the world was on pause, but feelings? they didn\'t stop."' },
-  { src: 'photos/foto4.jpg',  caption: 'ngedate ala anak sekolahan 🏫💕',                               quote: '"simple dates hit different when you\'re with the right person."' },
+  { src: 'photos/foto4.jpg',  caption: 'naik sidi bareng 🕊️💕',                                         quote: '"growing in faith, together. that means something."' },
   { src: 'photos/foto5.jpg',  caption: 'ppp mau kondangan? 😄👔',                                       quote: '"accidentally coordinated. definitely meant to be."' },
-  { src: 'photos/foto6.jpg',  caption: 'banyak foto SMA yak, adanya pas pepisahan SMA doang 🎓',        quote: '"graduation day — the school era is over, but we\'re still going."' },
+  { src: 'photos/foto6.jpg',  caption: 'ga banyak foto pas SMA, yg bagus hanya pas perpisahan 🎓',      quote: '"graduation day. the school era is over, but we are still going."' },
   { src: 'photos/foto7.jpg',  caption: 'ke Gacoan pertama kali, aku UTBK dia udah lulus SNBP coy 🔥',  quote: '"your win felt like mine too. that\'s just how it works with us."' },
   { src: 'photos/foto8.jpg',  caption: 'rencanain satu kampus bareng malah LDR hikss 😭',               quote: '"different cities, same feeling. we figured it out anyway."' },
-  { src: 'photos/foto9.jpg',  caption: 'LDR dimulai, mari kita mulai perang ini 💪',                    quote: '"distance is just a test — and so far, we keep passing it."' },
+  { src: 'photos/foto9.jpg',  caption: 'LDR dimulai, mari kita mulai perang ini 💪',                    quote: '"distance is just a test, and so far we keep passing it."' },
   { src: 'photos/foto10.jpg', caption: 'ketemunya libur semester aja, hiks 🗓️😢',                      quote: '"every reunion felt like the first time all over again."' },
   { src: 'photos/foto11.jpg', caption: 'ini juga foto pas libur semester 📅',                           quote: '"short on time, never short on memories."' },
   { src: 'photos/foto12.jpg', caption: 'LDR, VC-an mulu 📱💬',                                          quote: '"fell asleep on VC more times than we can count. no regrets."' },
   { src: 'photos/foto13.jpg', caption: 'ngide datengin ke Lampung 🚌✨',                                quote: '"sometimes love shows up at the door before it sends a text."' },
-  { src: 'photos/foto14.jpg', caption: 'Bukit Aslan 🏔️🌿',                                             quote: '"the view was stunning, but honestly — so were you."' },
+  { src: 'photos/foto14.jpg', caption: 'Bukit Aslan 🏔️🌿',                                             quote: '"the view was stunning, but honestly so were you."' },
   { src: 'photos/foto15.jpg', caption: 'makan sushi mengakhiri tahun 2025 🍣🎉',                        quote: '"2025 ending with sushi and you. can\'t complain."' },
   { src: 'photos/foto16.jpg', caption: 'masih dengan aku, kamu, dan Lampung 🌴💕',                      quote: '"different place, same feeling. it never really changes."' },
   { src: 'photos/foto17.jpg', caption: 'hunting makanan enak di Lampung yeuyy 🍜😋',                   quote: '"our love language: finding the best local food together."' },
   { src: 'photos/foto18.jpg', caption: 'mancing edition 🎣😄',                                          quote: '"best conversations happen when there\'s nowhere to be."' },
   { src: 'photos/foto19.jpg', caption: 'lucukk 🥰',                                                     quote: '"this photo lives rent-free in my head."' },
-  { src: 'photos/foto20.jpg', caption: 'tiba-tiba di Jakarta nih 🌆',                                   quote: '"any city feels right when you\'re next to me."' },
+  { src: 'photos/foto20.jpg', caption: 'healing ke Jakarta, berdua 🌆✨',                                quote: '"any city feels right when you are next to me."' },
 ];
 
 const TOTAL = photos.length;
