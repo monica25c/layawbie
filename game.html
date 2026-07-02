@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🦈 vs 🐷 Road Trip Race</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet"/>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    :root {
+      --pink:#f7c5d0; --pink-dark:#e8a0b4; --blush:#fde8ee;
+      --lavender:#e8d5f5; --cream:#fff9f4; --text:#5a3e4b;
+    }
+    body {
+      font-family:'Poppins',sans-serif;
+      background: linear-gradient(160deg,#fde8ee,#e8d5f5);
+      min-height:100vh; display:flex; flex-direction:column;
+      align-items:center; justify-content:center; padding:1rem;
+    }
+
+    h1 {
+      font-family:'Dancing Script',cursive;
+      font-size:clamp(1.6rem,5vw,2.4rem);
+      color:var(--text); margin-bottom:0.3rem; text-align:center;
+    }
+    .subtitle { font-size:0.8rem; color:#b89aa5; margin-bottom:1rem; text-align:center; }
+
+    /* SCOREBOARD */
+    .scoreboard {
+      display:flex; gap:2rem; margin-bottom:0.8rem;
+      background:white; border-radius:16px; padding:0.8rem 2rem;
+      box-shadow:0 4px 16px rgba(232,160,180,0.25);
+    }
+    .score-box { text-align:center; }
+    .score-box .name { font-size:0.75rem; color:#b89aa5; }
+    .score-box .score { font-size:1.6rem; font-weight:700; color:var(--text); }
+    .score-box.p1 .score { color:#e8a0b4; }
+    .score-box.p2 .score { color:#8ab4e8; }
+
+    /* GAME CANVAS */
+    canvas {
+      border-radius:20px;
+      box-shadow:0 8px 32px rgba(90,62,75,0.2);
+      max-width:100%;
+      display:block;
+    }
+
+    /* CONTROLS INFO */
+    .controls {
+      display:flex; gap:2rem; margin-top:0.8rem; flex-wrap:wrap; justify-content:center;
+    }
+    .ctrl-box {
+      background:white; border-radius:12px; padding:0.6rem 1.2rem;
+      font-size:0.75rem; color:var(--text); text-align:center;
+      box-shadow:0 2px 8px rgba(232,160,180,0.2);
+    }
+    .ctrl-box .player-name { font-weight:600; margin-bottom:0.2rem; }
+    .ctrl-box.p1 .player-name { color:#e8a0b4; }
+    .ctrl-box.p2 .player-name { color:#8ab4e8; }
+    kbd {
+      background:var(--blush); border-radius:4px;
+      padding:1px 6px; font-size:0.72rem; font-family:monospace;
+    }
+
+    /* OVERLAY */
+    .overlay {
+      position:fixed; inset:0;
+      background:rgba(90,62,75,0.7); backdrop-filter:blur(6px);
+      display:flex; align-items:center; justify-content:center; z-index:100;
+    }
+    .overlay-box {
+      background:white; border-radius:24px; padding:2.5rem 2rem;
+      text-align:center; max-width:360px; width:90%;
+      box-shadow:0 20px 60px rgba(90,62,75,0.3);
+      animation:popIn 0.3s ease;
+    }
+    @keyframes popIn { from{transform:scale(0.8);opacity:0} to{transform:scale(1);opacity:1} }
+    .overlay-box h2 { font-family:'Dancing Script',cursive; font-size:2rem; color:var(--text); margin-bottom:0.5rem; }
+    .overlay-box p { font-size:0.9rem; color:#b89aa5; margin-bottom:1.5rem; line-height:1.6; }
+    .overlay-box .winner-label { font-size:1.1rem; font-weight:600; color:var(--text); margin-bottom:1rem; }
+    .btn-start {
+      display:inline-block; padding:0.8rem 2rem;
+      background:linear-gradient(135deg,var(--pink-dark),#c97fa0);
+      color:white; border:none; border-radius:50px;
+      font-size:0.95rem; font-family:'Poppins',sans-serif;
+      cursor:pointer; transition:transform 0.2s;
+    }
+    .btn-start:hover { transform:translateY(-2px); }
+    .back-btn {
+      display:inline-block; margin-top:0.8rem; font-size:0.8rem;
+      color:#b89aa5; text-decoration:none; cursor:pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🦈 road trip race 🐷</h1>
+  <p class="subtitle">survive lebih lama dari pasangan — siapa yang menang?</p>
+
+  <div class="scoreboard">
+    <div class="score-box p1">
+      <div class="name">🦈 rizki</div>
+      <div class="score" id="score1">0</div>
+    </div>
+    <div class="score-box">
+      <div class="name">wins</div>
+      <div class="score" id="wins" style="font-size:1rem;padding-top:0.3rem">—</div>
+    </div>
+    <div class="score-box p2">
+      <div class="name">🐷 monic</div>
+      <div class="score" id="score2">0</div>
+    </div>
+  </div>
+
+  <canvas id="gameCanvas" width="700" height="320"></canvas>
+
+  <div class="controls">
+    <div class="ctrl-box p1">
+      <div class="player-name">🦈 rizki (P1)</div>
+      <kbd>A</kbd> kiri &nbsp; <kbd>D</kbd> kanan &nbsp; <kbd>W</kbd> lompat
+    </div>
+    <div class="ctrl-box p2">
+      <div class="player-name">🐷 monic (P2)</div>
+      <kbd>←</kbd> kiri &nbsp; <kbd>→</kbd> kanan &nbsp; <kbd>↑</kbd> lompat
+    </div>
+  </div>
+
+  <!-- START OVERLAY -->
+  <div class="overlay" id="overlayStart">
+    <div class="overlay-box">
+      <h2>road trip race 🏁</h2>
+      <p>hindari rintangan selama mungkin!<br/>yang pertama kena rintangan = kalah 😭<br/><br/>foto akan di-crop otomatis jadi karakter</p>
+      <button class="btn-start" onclick="startGame()">gasken! 🚀</button>
+      <br/>
+      <a class="back-btn" href="index.html">← balik ke website</a>
+    </div>
+  </div>
+
+  <!-- RESULT OVERLAY -->
+  <div class="overlay" id="overlayResult" style="display:none">
+    <div class="overlay-box">
+      <h2 id="resultEmoji">🎉</h2>
+      <div class="winner-label" id="resultText"></div>
+      <p id="resultMsg"></p>
+      <button class="btn-start" onclick="restartGame()">main lagi 🔄</button>
+      <br/>
+      <a class="back-btn" href="index.html">← balik ke website</a>
+    </div>
+  </div>
+
+  <script>
+  const canvas = document.getElementById('gameCanvas');
+  const ctx = canvas.getContext('2d');
+
+  // ── RESPONSIVE CANVAS ──
+  function resizeCanvas() {
+    const maxW = Math.min(window.innerWidth - 32, 700);
+    canvas.style.width = maxW + 'px';
+    canvas.style.height = (maxW * 320 / 700) + 'px';
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  // ── LOAD PLAYER IMAGES (crop face) ──
+  // photo1.jpg = foto berdua (Rizki kiri = crop left half, Monica kanan = crop right half)
+  const srcImg1 = new Image();
+  const srcImg2 = new Image();
+  const p1Canvas = document.createElement('canvas');
+  const p2Canvas = document.createElement('canvas');
+  p1Canvas.width = p2Canvas.width = 60;
+  p1Canvas.height = p2Canvas.height = 60;
+
+  let imagesLoaded = 0;
+
+  function tryLoadImages() {
+    // Try loading player1.jpg and player2.jpg first
+    // If not found, use the couple photo and auto-crop
+    const coupleImg = new Image();
+    coupleImg.crossOrigin = 'anonymous';
+    coupleImg.onload = () => {
+      // Rizki = left half
+      const p1c = p1Canvas.getContext('2d');
+      const half = coupleImg.naturalWidth / 2;
+      // crop left person (Rizki), focus on face top area
+      p1c.save();
+      p1c.beginPath();
+      p1c.arc(30,30,30,0,Math.PI*2);
+      p1c.clip();
+      p1c.drawImage(coupleImg, 0, 0, half, coupleImg.naturalHeight * 0.55, 0, 0, 60, 60);
+      p1c.restore();
+
+      // Monica = right half
+      const p2c = p2Canvas.getContext('2d');
+      p2c.save();
+      p2c.beginPath();
+      p2c.arc(30,30,30,0,Math.PI*2);
+      p2c.clip();
+      p2c.drawImage(coupleImg, half, 0, half, coupleImg.naturalHeight * 0.55, 0, 0, 60, 60);
+      p2c.restore();
+
+      imagesLoaded = 2;
+    };
+    coupleImg.onerror = () => { imagesLoaded = 2; }; // fallback to emoji
+    coupleImg.src = 'player1.jpg';
+
+    // also try puzzle.jpg as backup
+    if (!coupleImg.src) {
+      imagesLoaded = 2;
+    }
+  }
+
+  // Try loading dedicated player photos
+  srcImg1.crossOrigin = 'anonymous';
+  srcImg1.onload = () => {
+    const p1c = p1Canvas.getContext('2d');
+    p1c.save();
+    p1c.beginPath();
+    p1c.arc(30,30,30,0,Math.PI*2);
+    p1c.clip();
+    // crop top portion (face area)
+    const cropH = srcImg1.naturalHeight * 0.5;
+    const cropW = srcImg1.naturalWidth;
+    const offsetX = cropW * 0.1;
+    p1c.drawImage(srcImg1, offsetX, 0, cropW * 0.8, cropH, 0, 0, 60, 60);
+    p1c.restore();
+    imagesLoaded++;
+  };
+  srcImg1.onerror = () => { imagesLoaded++; };
+  srcImg1.src = 'player1.jpg';
+
+  srcImg2.crossOrigin = 'anonymous';
+  srcImg2.onload = () => {
+    const p2c = p2Canvas.getContext('2d');
+    p2c.save();
+    p2c.beginPath();
+    p2c.arc(30,30,30,0,Math.PI*2);
+    p2c.clip();
+    const cropH = srcImg2.naturalHeight * 0.5;
+    const cropW = srcImg2.naturalWidth;
+    const offsetX = cropW * 0.1;
+    p2c.drawImage(srcImg2, offsetX, 0, cropW * 0.8, cropH, 0, 0, 60, 60);
+    p2c.restore();
+    imagesLoaded++;
+  };
+  srcImg2.onerror = () => {
+    imagesLoaded++;
+    // If no dedicated photo, try to use puzzle photo cropped
+    tryLoadImages();
+  };
+  srcImg2.src = 'player2.jpg';
+
+  // ── GAME STATE ──
+  const W = 700, H = 320;
+  const GROUND = H - 60;
+  const GRAVITY = 0.6;
+  const LANE_COUNT = 3;
+  const LANE_H = (GROUND - 60) / LANE_COUNT;
+
+  let gameRunning = false;
+  let animId = null;
+  let frameCount = 0;
+  let speed = 4;
+  let wins = [0, 0];
+
+  const LANES = [60, 60 + LANE_H, 60 + LANE_H * 2];
+
+  function makeLaneY(lane) { return LANES[lane]; }
+
+  const players = [
+    {
+      x: 100, y: makeLaneY(1), w: 52, h: 52,
+      vy: 0, lane: 1, jumping: false,
+      alive: true, color: '#8ab4e8', emoji: '🦈',
+      name: 'rizki', scoreEl: document.getElementById('score1'),
+      score: 0
+    },
+    {
+      x: 180, y: makeLaneY(1), w: 52, h: 52,
+      vy: 0, lane: 1, jumping: false,
+      alive: true, color: '#e8a0b4', emoji: '🐷',
+      name: 'monic', scoreEl: document.getElementById('score2'),
+      score: 0
+    }
+  ];
+
+  let obstacles = [];
+  let particles = [];
+
+  // ── KEYS ──
+  const keys = {};
+  document.addEventListener('keydown', e => {
+    keys[e.key] = true;
+    // prevent scroll
+    if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight',' '].includes(e.key)) e.preventDefault();
+  });
+  document.addEventListener('keyup', e => { keys[e.key] = false; });
+
+  // ── INPUT ──
+  function handleInput() {
+    const p1 = players[0], p2 = players[1];
+
+    // P1 — RIZKI: W/A/D
+    if (p1.alive) {
+      if ((keys['w'] || keys['W']) && !p1.jumping) {
+        p1.vy = -13; p1.jumping = true;
+      }
+      if ((keys['a'] || keys['A']) && p1.lane > 0) {
+        p1.lane--; p1.y = makeLaneY(p1.lane); keys['a'] = keys['A'] = false;
+      }
+      if ((keys['d'] || keys['D']) && p1.lane < LANE_COUNT - 1) {
+        p1.lane++; p1.y = makeLaneY(p1.lane); keys['d'] = keys['D'] = false;
+      }
+    }
+
+    // P2 — MONIC: Arrow keys
+    if (p2.alive) {
+      if (keys['ArrowUp'] && !p2.jumping) {
+        p2.vy = -13; p2.jumping = true;
+      }
+      if (keys['ArrowLeft'] && p2.lane > 0) {
+        p2.lane--; p2.y = makeLaneY(p2.lane); keys['ArrowLeft'] = false;
+      }
+      if (keys['ArrowRight'] && p2.lane < LANE_COUNT - 1) {
+        p2.lane++; p2.y = makeLaneY(p2.lane); keys['ArrowRight'] = false;
+      }
+    }
+  }
+
+  // ── SPAWN OBSTACLES ──
+  function spawnObstacle() {
+    const lane = Math.floor(Math.random() * LANE_COUNT);
+    const types = ['🌵','🪨','💥','🧱','⚡'];
+    obstacles.push({
+      x: W + 20,
+      lane,
+      y: makeLaneY(lane),
+      w: 36, h: 36,
+      emoji: types[Math.floor(Math.random() * types.length)]
+    });
+  }
+
+  // ── PARTICLES ──
+  function spawnParticles(x, y, color) {
+    for (let i = 0; i < 8; i++) {
+      particles.push({
+        x, y, vx: (Math.random()-0.5)*6,
+        vy: (Math.random()-0.5)*6 - 2,
+        life: 1, color
+      });
+    }
+  }
+
+  // ── UPDATE ──
+  function update() {
+    frameCount++;
+    speed = 4 + Math.floor(frameCount / 200) * 0.5;
+
+    // spawn
+    const spawnRate = Math.max(45, 90 - Math.floor(frameCount / 150) * 5);
+    if (frameCount % spawnRate === 0) spawnObstacle();
+
+    // move obstacles
+    obstacles.forEach(o => o.x -= speed);
+    obstacles = obstacles.filter(o => o.x > -50);
+
+    // update players
+    players.forEach(p => {
+      if (!p.alive) return;
+      p.score++;
+      p.scoreEl.textContent = Math.floor(p.score / 10);
+
+      // gravity / jump
+      p.vy += GRAVITY;
+      p.y += p.vy;
+      const groundY = makeLaneY(p.lane);
+      if (p.y >= groundY) { p.y = groundY; p.vy = 0; p.jumping = false; }
+    });
+
+    // collision
+    obstacles.forEach(o => {
+      players.forEach(p => {
+        if (!p.alive) return;
+        const inLane = p.lane === o.lane;
+        const ox = o.x + 4, ow = o.w - 8;
+        const oy = o.y + 4, oh = o.h - 8;
+        const px = p.x + 4, pw = p.w - 8;
+        const py = p.y + 4, ph = p.h - 8;
+        if (inLane && px < ox + ow && px + pw > ox && py < oy + oh && py + ph > oy) {
+          p.alive = false;
+          spawnParticles(p.x + 26, p.y + 26, p.color);
+        }
+      });
+    });
+
+    // particles
+    particles.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      p.vy += 0.2; p.life -= 0.04;
+    });
+    particles = particles.filter(p => p.life > 0);
+
+    // check end
+    const alive = players.filter(p => p.alive);
+    if (alive.length === 0) {
+      // draw — whoever has more score wins
+      const winner = players[0].score >= players[1].score ? players[0] : players[1];
+      endGame(winner, true);
+    } else if (alive.length === 1) {
+      endGame(alive[0], false);
+    }
+  }
+
+  // ── DRAW ──
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+
+    // sky bg
+    const grad = ctx.createLinearGradient(0,0,0,H);
+    grad.addColorStop(0,'#fde8ee');
+    grad.addColorStop(1,'#e8d5f5');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0,0,W,H);
+
+    // ground
+    ctx.fillStyle = '#f0d5dc';
+    ctx.fillRect(0, GROUND, W, H - GROUND);
+
+    // lane lines
+    LANES.forEach((ly, i) => {
+      ctx.strokeStyle = 'rgba(232,160,180,0.3)';
+      ctx.setLineDash([12,8]);
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(0, ly + 52);
+      ctx.lineTo(W, ly + 52);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    });
+
+    // road markings
+    for (let x = (frameCount * speed * -1) % 80; x < W; x += 80) {
+      ctx.fillStyle = 'rgba(232,160,180,0.25)';
+      ctx.fillRect(x, GROUND - 2, 40, 4);
+    }
+
+    // obstacles
+    obstacles.forEach(o => {
+      ctx.font = `${o.h}px serif`;
+      ctx.textAlign = 'center';
+      ctx.fillText(o.emoji, o.x + o.w/2, o.y + o.h);
+    });
+
+    // particles
+    particles.forEach(p => {
+      ctx.globalAlpha = p.life;
+      ctx.fillStyle = p.color;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 5, 0, Math.PI*2);
+      ctx.fill();
+    });
+    ctx.globalAlpha = 1;
+
+    // players
+    players.forEach((p, i) => {
+      if (!p.alive) return;
+
+      // shadow
+      ctx.fillStyle = 'rgba(90,62,75,0.12)';
+      ctx.beginPath();
+      ctx.ellipse(p.x + p.w/2, makeLaneY(p.lane) + p.h + 4, p.w/2, 6, 0, 0, Math.PI*2);
+      ctx.fill();
+
+      // avatar circle bg
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(p.x + p.w/2, p.y + p.h/2, p.w/2 + 3, 0, Math.PI*2);
+      ctx.fillStyle = i === 0 ? 'rgba(138,180,232,0.35)' : 'rgba(232,160,180,0.35)';
+      ctx.fill();
+
+      // player photo or emoji fallback
+      if ((i === 0 && srcImg1.complete && srcImg1.naturalWidth > 0) ||
+          (i === 1 && srcImg2.complete && srcImg2.naturalWidth > 0) || imagesLoaded >= 2) {
+        const pc = i === 0 ? p1Canvas : p2Canvas;
+        if (pc.width > 0) {
+          ctx.save();
+          ctx.beginPath();
+          ctx.arc(p.x + p.w/2, p.y + p.h/2, p.w/2, 0, Math.PI*2);
+          ctx.clip();
+          ctx.drawImage(pc, p.x, p.y, p.w, p.h);
+          ctx.restore();
+        } else {
+          ctx.font = `${p.h * 0.85}px serif`;
+          ctx.textAlign = 'center';
+          ctx.fillText(p.emoji, p.x + p.w/2, p.y + p.h * 0.85);
+        }
+      } else {
+        ctx.font = `${p.h * 0.85}px serif`;
+        ctx.textAlign = 'center';
+        ctx.fillText(p.emoji, p.x + p.w/2, p.y + p.h * 0.85);
+      }
+
+      // name tag
+      ctx.fillStyle = i === 0 ? '#8ab4e8' : '#e8a0b4';
+      ctx.font = 'bold 10px Poppins';
+      ctx.textAlign = 'center';
+      ctx.fillText(p.name, p.x + p.w/2, p.y - 6);
+
+      ctx.restore();
+    });
+
+    // speed indicator
+    ctx.fillStyle = 'rgba(90,62,75,0.4)';
+    ctx.font = '11px Poppins';
+    ctx.textAlign = 'right';
+    ctx.fillText(`speed x${speed.toFixed(1)}`, W - 10, 20);
+  }
+
+  // ── GAME LOOP ──
+  function loop() {
+    if (!gameRunning) return;
+    handleInput();
+    update();
+    draw();
+    animId = requestAnimationFrame(loop);
+  }
+
+  // ── START ──
+  function startGame() {
+    document.getElementById('overlayStart').style.display = 'none';
+    document.getElementById('overlayResult').style.display = 'none';
+
+    frameCount = 0; speed = 4;
+    obstacles = []; particles = [];
+
+    players.forEach((p, i) => {
+      p.x = 80 + i * 80;
+      p.lane = 1; p.y = makeLaneY(1);
+      p.vy = 0; p.jumping = false;
+      p.alive = true; p.score = 0;
+      p.scoreEl.textContent = '0';
+    });
+
+    gameRunning = true;
+    if (animId) cancelAnimationFrame(animId);
+    loop();
+  }
+
+  function restartGame() { startGame(); }
+
+  // ── END ──
+  function endGame(winner, isDraw) {
+    gameRunning = false;
+    cancelAnimationFrame(animId);
+
+    const wIdx = players.indexOf(winner);
+    wins[wIdx]++;
+    const winsEl = document.getElementById('wins');
+    winsEl.textContent = `${wins[0]} : ${wins[1]}`;
+
+    const overlay = document.getElementById('overlayResult');
+    const emoji = document.getElementById('resultEmoji');
+    const text = document.getElementById('resultText');
+    const msg = document.getElementById('resultMsg');
+
+    if (isDraw) {
+      emoji.textContent = '🤝';
+      text.textContent = 'draw!';
+      msg.textContent = 'seri nih, sama-sama kena. main lagi!';
+    } else {
+      emoji.textContent = winner.emoji;
+      text.textContent = `${winner.name} menang! ${winner.emoji}`;
+      const msgs = [
+        `gg! ${winner.name} survive lebih lama 🏆`,
+        `${winner.name} literally unstoppable 😤`,
+        `${winner.name} yang lebih jago hari ini!`,
+        `${players[wIdx === 0 ? 1 : 0].name} kena rintangan duluan 😭`
+      ];
+      msg.textContent = msgs[Math.floor(Math.random() * msgs.length)];
+    }
+    overlay.style.display = 'flex';
+  }
+
+  // draw initial frame
+  draw();
+  </script>
+</body>
+</html>
