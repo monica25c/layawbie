@@ -201,7 +201,7 @@
       imagesLoaded = 2;
     };
     coupleImg.onerror = () => { imagesLoaded = 2; }; // fallback to emoji
-    coupleImg.src = 'player1.jpg';
+    coupleImg.src = 'player1.png';
 
     // also try puzzle.jpg as backup
     if (!coupleImg.src) {
@@ -226,7 +226,7 @@
     imagesLoaded++;
   };
   srcImg1.onerror = () => { imagesLoaded++; };
-  srcImg1.src = 'player1.jpg';
+  srcImg1.src = 'player1.png';
 
   srcImg2.crossOrigin = 'anonymous';
   srcImg2.onload = () => {
@@ -247,7 +247,7 @@
     // If no dedicated photo, try to use puzzle photo cropped
     tryLoadImages();
   };
-  srcImg2.src = 'player2.jpg';
+  srcImg2.src = 'player2.png';
 
   // ── GAME STATE ──
   const W = 700, H = 320;
