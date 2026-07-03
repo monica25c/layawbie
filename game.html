@@ -354,7 +354,18 @@
 
   // ── KEYS ──
   const keys = {};
-  document.addEventListener('keydown', e => {
+    const mobile = {
+      p1Left:false,
+      p1Right:false,
+      p1Jump:false,
+      
+      p2Left:false,
+      p2Right:false,
+      p2Jump:false
+    };
+    
+    document.addEventListener('keydown', e => {
+      
     keys[e.key] = true;
     // prevent scroll
     if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight',' '].includes(e.key)) e.preventDefault();
@@ -645,7 +656,27 @@
     }
     overlay.style.display = 'flex';
   }
-
+  // ================= MOBILE BUTTON =================
+    // PLAYER 1
+    document.getElementById("p1Left").addEventListener("touchstart", () => mobile.p1Left = true);
+    document.getElementById("p1Left").addEventListener("touchend", () => mobile.p1Left = false);
+    
+    document.getElementById("p1Right").addEventListener("touchstart", () => mobile.p1Right = true);
+    document.getElementById("p1Right").addEventListener("touchend", () => mobile.p1Right = false);
+    
+    document.getElementById("p1Jump").addEventListener("touchstart", () => mobile.p1Jump = true);
+    document.getElementById("p1Jump").addEventListener("touchend", () => mobile.p1Jump = false);
+    
+    // PLAYER 2
+    document.getElementById("p2Left").addEventListener("touchstart", () => mobile.p2Left = true);
+    document.getElementById("p2Left").addEventListener("touchend", () => mobile.p2Left = false);
+    
+    document.getElementById("p2Right").addEventListener("touchstart", () => mobile.p2Right = true);
+    document.getElementById("p2Right").addEventListener("touchend", () => mobile.p2Right = false);
+    
+    document.getElementById("p2Jump").addEventListener("touchstart", () => mobile.p2Jump = true);
+    document.getElementById("p2Jump").addEventListener("touchend", () => mobile.p2Jump = false);
+    
   // draw initial frame
   draw();
   </script>
