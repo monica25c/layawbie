@@ -372,38 +372,75 @@
   });
   document.addEventListener('keyup', e => { keys[e.key] = false; });
 
-  // ── INPUT ──
-  function handleInput() {
-    const p1 = players[0], p2 = players[1];
+ // ── INPUT ──
+function handleInput() {
 
-    // P1 — RIZKI: W/A/D
-    if (p1.alive) {
-      if ((keys['w'] || keys['W']) && !p1.jumping) {
-        p1.vy = -13; p1.jumping = true;
-      }
-      if ((keys['a'] || keys['A']) && p1.lane > 0) {
-        p1.lane--; p1.y = makeLaneY(p1.lane); keys['a'] = keys['A'] = false;
-      }
-      if ((keys['d'] || keys['D']) && p1.lane < LANE_COUNT - 1) {
-        p1.lane++; p1.y = makeLaneY(p1.lane); keys['d'] = keys['D'] = false;
-      }
+  const p1 = players[0];
+  const p2 = players[1];
+
+  // ==========================
+  // PLAYER 1 (W A D + HP)
+  // ==========================
+
+  if (p1.alive) {
+
+    if ((keys['w'] || keys['W'] || mobile.p1Jump) && !p1.jumping) {
+      p1.vy = -13;
+      p1.jumping = true;
+      mobile.p1Jump = false;
     }
 
-    // P2 — MONIC: Arrow keys
-    if (p2.alive) {
-      if (keys['ArrowUp'] && !p2.jumping) {
-        p2.vy = -13; p2.jumping = true;
-      }
-      if (keys['ArrowLeft'] && p2.lane > 0) {
-        p2.lane--; p2.y = makeLaneY(p2.lane); keys['ArrowLeft'] = false;
-      }
-      if (keys['ArrowRight'] && p2.lane < LANE_COUNT - 1) {
-        p2.lane++; p2.y = makeLaneY(p2.lane); keys['ArrowRight'] = false;
-      }
+    if ((keys['a'] || keys['A'] || mobile.p1Left) && p1.lane > 0) {
+      p1.lane--;
+      p1.y = makeLaneY(p1.lane);
+
+      keys['a'] = false;
+      keys['A'] = false;
+      mobile.p1Left = false;
     }
+
+    if ((keys['d'] || keys['D'] || mobile.p1Right) && p1.lane < LANE_COUNT - 1) {
+      p1.lane++;
+      p1.y = makeLaneY(p1.lane);
+
+      keys['d'] = false;
+      keys['D'] = false;
+      mobile.p1Right = false;
+    }
+
   }
 
-  // ── SPAWN OBSTACLES ──
+  // ==========================
+  // PLAYER 2 (Arrow + HP)
+  // ==========================
+
+  if (p2.alive) {
+
+    if ((keys['ArrowUp'] || mobile.p2Jump) && !p2.jumping) {
+      p2.vy = -13;
+      p2.jumping = true;
+      mobile.p2Jump = false;
+    }
+
+    if ((keys['ArrowLeft'] || mobile.p2Left) && p2.lane > 0) {
+      p2.lane--;
+      p2.y = makeLaneY(p2.lane);
+
+      keys['ArrowLeft'] = false;
+      mobile.p2Left = false;
+    }
+
+    if ((keys['ArrowRight'] || mobile.p2Right) && p2.lane < LANE_COUNT - 1) {
+      p2.lane++;
+      p2.y = makeLaneY(p2.lane);
+
+      keys['ArrowRight'] = false;
+      mobile.p2Right = false;
+    }
+
+  }
+
+}─ SPAWN OBSTACLES ──
   function spawnObstacle() {
     const lane = Math.floor(Math.random() * LANE_COUNT);
     const types = ['🌵','🪨','💥','🧱','⚡'];
