@@ -90,6 +90,61 @@
       display:inline-block; margin-top:0.8rem; font-size:0.8rem;
       color:#b89aa5; text-decoration:none; cursor:pointer;
     }
+    /* ================= MOBILE CONTROLLER ================= */
+    .mobile-controls{
+      display:none;
+      margin-top:20px;
+      width:100%;
+      max-width:700px;
+      justify-content:space-between;
+      gap:20px;
+    }
+    
+    .mobile-player{
+      flex:1;
+      display:flex;
+      justify-content:center;
+      gap:10px;
+    }
+    
+    .mobile-player button{
+      width:60px;
+      height:60px;
+      
+      border:none;
+      border-radius:50%;
+      
+      font-size:22px;
+      font-weight:bold;
+      
+      color:white;
+      cursor:pointer;
+      
+      touch-action:none;
+      transition:.15s;
+    }
+    
+    .mobile-player button:active{
+      transform:scale(.9);
+    }
+    
+    .player1 button{
+      background:#8ab4e8;
+    }
+    
+    .player2 button{
+      background:#e8a0b4;
+    }
+    
+    @media(max-width:768px){
+      .controls{
+        display:none;
+      }
+      
+      .mobile-controls{
+        display:flex;
+      }
+    }
   </style>
 </head>
 <body>
@@ -113,7 +168,18 @@
   </div>
 
   <canvas id="gameCanvas" width="700" height="320"></canvas>
-
+  <div class="mobile-controls">
+    <div class="mobile-player player1">
+    <button id="p1Left">◀</button>
+      <button id="p1Jump">▲</button>
+      <button id="p1Right">▶</button>
+    </div>
+    <div class="mobile-player player2">
+      <button id="p2Left">◀</button>
+      <button id="p2Jump">▲</button>
+      <button id="p2Right">▶</button>
+    </div>
+  </div>
   <div class="controls">
     <div class="ctrl-box p1">
       <div class="player-name">🦈 rizki (P1)</div>
