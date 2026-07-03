@@ -426,7 +426,34 @@
 
   let obstacles = [];
   let particles = [];
+    
+  // ── AUDIO ──
+const sounds = {
+  jump: new Audio(),
+  hit: new Audio(),
+  bgm: new Audio()
+};
+  
+  // BACKGROUND MUSIC
+    sounds.bgm.src = "https://cdn.pixabay.com/download/audio/2022/10/25/audio_5c7d6c2c1f.mp3?filename=funny-arcade-loop-117086.mp3";
+    sounds.bgm.loop = true;
+    sounds.bgm.volume = 0.35;
 
+  // JUMP
+    sounds.jump.src = "https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg";
+    sounds.jump.volume = 0.6;
+
+  // HIT
+    sounds.hit.src = "https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg";
+    sounds.hit.volume = 0.6;
+
+  // UNLOCK AUDIO (HP + PC FIX)
+    function unlockAudio(){
+      sounds.bgm.play().catch(()=>{});
+    }
+    document.addEventListener("click", unlockAudio, { once:true });
+    document.addEventListener("touchstart", unlockAudio, { once:true });
+    
   // ── KEYS ──
   const keys = {};
     const mobile = {
@@ -462,6 +489,8 @@ function handleInput() {
     if ((keys['w'] || keys['W'] || mobile.p1Jump) && !p1.jumping) {
       p1.vy = -13;
       p1.jumping = true;
+      sounds.jump.currentTime = 0;
+      sounds.jump.play();
       mobile.p1Jump = false;
     }
 
@@ -494,6 +523,8 @@ function handleInput() {
     if ((keys['ArrowUp'] || mobile.p2Jump) && !p2.jumping) {
       p2.vy = -13;
       p2.jumping = true;
+      sounds.jump.currentTime = 0;
+      sounds.jump.play();
       mobile.p2Jump = false;
     }
 
@@ -577,8 +608,14 @@ function handleInput() {
         const py = p.y + 4, ph = p.h - 8;
         if (inLane && px < ox + ow && px + pw > ox && py < oy + oh && py + ph > oy) {
           p.alive = false;
+
+    // 💥 PARTICLE
           spawnParticles(p.x + 26, p.y + 26, p.color);
-        }
+          
+    // 🔊 SOUND HIT (INI TEMPATNYA)
+          sounds.hit.currentTime = 0;
+          sounds.hit.play();
+}
       });
     });
 
@@ -751,10 +788,7 @@ async function showCountdown() {
       particles = [];
       
       players.forEach((p, i) => {
-        p.x = 80 + i * 80;
-        p.lane = 1;
-        p.y = makeLaneY(1);
-
+        p.x = 100;
         p.vy = 0;
         p.jumping = false;
 
@@ -763,9 +797,16 @@ async function showCountdown() {
 
         p.scoreEl.textContent = '0';
       });
-
-    gameRunning = true;
-
+      
+      // Posisi awal pemain
+      players[0].lane = 0;
+      players[1].lane = 2;
+      players[0].y = makeLaneY(players[0].lane);
+      players[1].y = makeLaneY(players[1].lane); 
+    
+      gameRunning = true;
+      sounds.bgm.play();
+      
     if(animId) cancelAnimationFrame(animId);
 
     loop();
